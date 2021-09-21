@@ -16,6 +16,7 @@ using System.Reflection;
 using System.IO;
 using JobSearchAssistantAPI.Contracts;
 using JobSearchAssistantAPI.Services;
+using JobSearchAssistantAPI.Mappings;
 
 namespace JobSearchAssistantAPI
 {
@@ -43,6 +44,8 @@ namespace JobSearchAssistantAPI
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             //----- Swagger implementation
             services.AddSwaggerGen(c =>

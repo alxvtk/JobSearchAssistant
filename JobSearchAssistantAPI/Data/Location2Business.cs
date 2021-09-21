@@ -1,5 +1,8 @@
-﻿namespace JobSearchAssistantAPI.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JobSearchAssistantAPI.Data
 {
+    [Table("Location2Business")]
     public class Location2Business
     {
         public int Id { get; set; }
