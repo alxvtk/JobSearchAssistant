@@ -10,6 +10,6 @@ namespace JobSearchAssistantAPI.Data
         public string Code { get; set; }
         public string Name { get; set; }
 
-        //public virtual IList<Location> Locations { get; set; }
+        public virtual IList<Location> Locations { get; set; }
     }
 }

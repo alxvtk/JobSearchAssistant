@@ -4,6 +4,17 @@
         <name>JobSearchAssistantAPI</name>
     </assembly>
     <members>
+        <member name="T:JobSearchAssistantAPI.Controllers.CountryController">
+            <summary>
+            Endpoint to interact with Countries
+            </summary>
+        </member>
+        <member name="M:JobSearchAssistantAPI.Controllers.CountryController.GetCountries">
+            <summary>
+            Get all countries
+            </summary>
+            <returns>List of countries</returns>
+        </member>
         <member name="T:JobSearchAssistantAPI.Controllers.HomeController">
             <summary>
             This is a test API controller
@@ -37,6 +48,17 @@
         </member>
         <member name="M:JobSearchAssistantAPI.Controllers.HomeController.Delete(System.Int32)">
             <param name="id"></param>
+        </member>
+        <member name="T:JobSearchAssistantAPI.Controllers.LocationController">
+            <summary>
+            Endpoint to interact with Locations
+            </summary>
+        </member>
+        <member name="M:JobSearchAssistantAPI.Controllers.LocationController.GetLocations">
+            <summary>
+            Get all locations
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

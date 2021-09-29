@@ -1,28 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace JobSearchAssistantAPI.Data
+namespace DataAccessTest.Models
 {
-    [Table("Location")]
-
-    public partial class Location
+    public class Location
     {
-        public int Id { get; set; }
-
+        public int LocationID { get; set; }
         public string StreetNumber { get; set; }
-        public string StreetNumberSuffix { get; set; }
+        public string StreetNumberSufix { get; set; }
         public string StreetName { get; set; }
         public string StreetType { get; set; }
         public string StreetDirection { get; set; }
-        public string StreetUnit { get; set; }
+        public string Unit { get; set; }
         public string Municipality { get; set; }
         public string Province { get; set; }
+        public int CountryId { get; set; }
         public string PostalCode { get; set; }
         public string StreetLine1 { get; set; }
         public string StreetLine2 { get; set; }
         public string Comments { get; set; }
-        
-        public int? CountryId { get; set; }
-        public virtual Country Country { get; set; }
 
+
+        public Country Country { get; set; }
     }
 }

@@ -10,5 +10,7 @@ namespace JobSearchAssistantAPI.DTOs
         public int Id { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
+
+        public virtual IList<LocationDto> Locations { get; set; }
     }
 }

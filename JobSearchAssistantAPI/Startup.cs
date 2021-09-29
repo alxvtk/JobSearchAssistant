@@ -67,6 +67,18 @@ namespace JobSearchAssistantAPI
 
 
             services.AddSingleton<ILoggerService, LoggerService>();
+
+            services.AddScoped<ICountryRepository, JobSearchAssistantAPI.Services.CountryRepository>();
+            services.AddScoped<ILocationRepository, JobSearchAssistantAPI.Services.LocationRepository>();
+
+            //services.AddScoped<ICountryRepository, CountryRepository>();
+            //services.AddScoped<ILocationRepository, LocationRepository>();
+
+            //services.AddScoped<ICountryRepository, CountryRepository>();
+            //services.AddScoped<IBusinessRepository, BusinessRepository>();
+
+
+
             services.AddControllers();
             //services.AddRazorPages();
         }

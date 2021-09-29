@@ -14,8 +14,8 @@ namespace JobSearchAssistantAPI.Mappings
         {
             CreateMap<Country, CountryDto>().ReverseMap();
             CreateMap<Location, LocationDto>().ReverseMap();
-            CreateMap<Business, BusinessDto>().ReverseMap();
-            CreateMap<Location2Business, Location2BusinessDto>().ReverseMap();
+            //CreateMap<Business, BusinessDto>().ReverseMap();
+            //CreateMap<Location2Business, Location2BusinessDto>().ReverseMap();
 
         }
 

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSearchAssistantAPI", "Jo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSA_Database", "JSA_Database\JSA_Database.csproj", "{076C1AE7-FB43-416A-827C-50C37321C6BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessTest", "DataAccessTest\DataAccessTest.csproj", "{243A5B46-877F-4538-A09B-B03FA550D77B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{076C1AE7-FB43-416A-827C-50C37321C6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{076C1AE7-FB43-416A-827C-50C37321C6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{076C1AE7-FB43-416A-827C-50C37321C6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{243A5B46-877F-4538-A09B-B03FA550D77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{243A5B46-877F-4538-A09B-B03FA550D77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{243A5B46-877F-4538-A09B-B03FA550D77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{243A5B46-877F-4538-A09B-B03FA550D77B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

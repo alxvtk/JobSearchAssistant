@@ -10,12 +10,11 @@ namespace JobSearchAssistantAPI.Data
     {
         public DbSet<Country> Countries { get; set; }
         public DbSet<Location> Locations { get; set; }
-        public DbSet<Business> Businesses { get; set; }
-        public DbSet<Location2Business> BusinessLocations { get; set; }    
+        //public DbSet<Business> Businesses { get; set; }
+        //public DbSet<Location2Business> BusinessLocations { get; set; }    
 
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
     }
