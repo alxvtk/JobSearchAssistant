@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=DESKTOP-BCO1FP1\\MSSQLAV;Database=JobSearchAssistant;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
