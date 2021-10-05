@@ -1,1 +1,3 @@
 Data Source=DESKTOP-BCO1FP1\MSSQLAV;Initial Catalog=JobSearchAssistant;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+
+Data Source=DESKTOP-BCO1FP1\MSSQLAV;Initial Catalog=JobSearchAssistant;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
