@@ -17,7 +17,7 @@ CREATE TABLE [dbo].[jsa_Document]
  [d_UrlId] int NULL,
  [d_EmailId] int NULL,
  [d_DocFormatId] int NULL,
- [d_Body] varchar(8000) NULL,
+ [d_Body] varchar(MAX) NULL,
  [d_FullPath] varchar(260) NULL,
  CONSTRAINT [PK__d_Id] PRIMARY KEY CLUSTERED ([d_Id] ASC)  ON [PRIMARY],
  CONSTRAINT [FK__d_UrlId_2_u_Id] FOREIGN KEY ([d_UrlId]) REFERENCES [jsa_Url] ( [u_Id] ),

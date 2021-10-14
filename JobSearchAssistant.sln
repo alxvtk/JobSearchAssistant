@@ -14,7 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{766E7803-DE80-45E3-AC3E-CEA324D92F4E}"
 	ProjectSection(SolutionItems) = preProject
 		Documents\JobSearchAssistant_DatabaseEntitiesRelationship_20210913_1411.vsdx = Documents\JobSearchAssistant_DatabaseEntitiesRelationship_20210913_1411.vsdx
-		Documents\JobSearchAssistant_DatabaseNotation_20210913_1343.vsdx = Documents\JobSearchAssistant_DatabaseNotation_20210913_1343.vsdx
+		Documents\JobSearchAssistant_DatabaseNotation_20211014_1230.vsdx = Documents\JobSearchAssistant_DatabaseNotation_20211014_1230.vsdx
 	EndProjectSection
 EndProject
 Global
