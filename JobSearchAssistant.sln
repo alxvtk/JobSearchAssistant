@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsaConsole", "JsaConsole\Js
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsaApi", "JsaApi\JsaApi.csproj", "{950B6464-B841-4B64-80C1-CEE4A320EBEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsaService", "JsaService\JsaService.csproj", "{6CAC971C-C2FB-4D43-A067-950BEFA0CDD8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{766E7803-DE80-45E3-AC3E-CEA324D92F4E}"
 	ProjectSection(SolutionItems) = preProject
 		Documents\JobSearchAssistant_DatabaseEntitiesRelationship_20210913_1411.vsdx = Documents\JobSearchAssistant_DatabaseEntitiesRelationship_20210913_1411.vsdx
@@ -35,10 +33,6 @@ Global
 		{950B6464-B841-4B64-80C1-CEE4A320EBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{950B6464-B841-4B64-80C1-CEE4A320EBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{950B6464-B841-4B64-80C1-CEE4A320EBEC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CAC971C-C2FB-4D43-A067-950BEFA0CDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CAC971C-C2FB-4D43-A067-950BEFA0CDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CAC971C-C2FB-4D43-A067-950BEFA0CDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CAC971C-C2FB-4D43-A067-950BEFA0CDD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
