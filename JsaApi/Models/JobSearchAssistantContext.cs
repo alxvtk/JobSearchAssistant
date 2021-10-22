@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 /*
  Working line:
  Scaffold-DbContext "Server=DESKTOP-BCO1FP1\MSSQLAV;Database=JobSearchAssistant;Trusted_Connection=True;MultipleActiveResultSets=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+ Modeling data: www.youtube.com/watch?v=uLMoA0piCic
+ Creating API: www.c-sharpcorner.com/article/asp-net-core-5-0-web-api/; 
+               www.youtube.com/watch?v=nG3yRTPY5wU
 */
 
 #nullable disable

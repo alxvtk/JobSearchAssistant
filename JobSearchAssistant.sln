@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		Documents\JobSearchAssistant_DatabaseNotation_20211014_1230.vsdx = Documents\JobSearchAssistant_DatabaseNotation_20211014_1230.vsdx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsaWcfService", "JsaWcfService\JsaWcfService.csproj", "{06172D18-85CC-45D0-B0FB-763823CEECC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{950B6464-B841-4B64-80C1-CEE4A320EBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{950B6464-B841-4B64-80C1-CEE4A320EBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{950B6464-B841-4B64-80C1-CEE4A320EBEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
