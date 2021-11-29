@@ -1,0 +1,7 @@
+
+https://codewithmukesh.com/blog/cqrs-in-aspnet-core-3-1/
+https://codeopinion.com/why-use-mediatr-3-reasons-why-and-1-reason-not/
+https://dotnetcoretutorials.com/2019/04/30/the-mediator-pattern-part-3-mediatr-library/
+
+https://codewithmukesh.com/blog/entity-framework-core-in-aspnet-core/
+https://www.toptal.com/asp-dot-net/asp-net-web-api-tutorial
