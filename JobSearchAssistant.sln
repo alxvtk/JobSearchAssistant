@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Knowledge", "Knowledge", "{
 		Knowledge\MediatR.txt = Knowledge\MediatR.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsaCqrsApi", "JsaCqrsApi\JsaCqrsApi.csproj", "{BAAAFED2-FC44-40FE-9A58-31800A19CFFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06172D18-85CC-45D0-B0FB-763823CEECC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAAAFED2-FC44-40FE-9A58-31800A19CFFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAAAFED2-FC44-40FE-9A58-31800A19CFFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAAAFED2-FC44-40FE-9A58-31800A19CFFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAAAFED2-FC44-40FE-9A58-31800A19CFFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
