@@ -19,4 +19,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\SourceTypeFeatures\Commands\" />
+    <Folder Include="Features\SourceTypeFeatures\Queries\" />
+  </ItemGroup>
+
 </Project>

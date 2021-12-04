@@ -1,7 +1,22 @@
+Implementing CQRS with MediatR in ASP.NET Core:
+
+Search Google for "mediator pattern .net core, sample"; "fluent validation in mediatr"
 
 https://codewithmukesh.com/blog/cqrs-in-aspnet-core-3-1/
+https://codewithmukesh.com/blog/entity-framework-core-in-aspnet-core/
+https://codewithmukesh.com/blog/mediatr-pipeline-behaviour/
+https://github.com/iammukeshm/CQRS.WebApi
+
 https://codeopinion.com/why-use-mediatr-3-reasons-why-and-1-reason-not/
 https://dotnetcoretutorials.com/2019/04/30/the-mediator-pattern-part-3-mediatr-library/
 
-https://codewithmukesh.com/blog/entity-framework-core-in-aspnet-core/
 https://www.toptal.com/asp-dot-net/asp-net-web-api-tutorial
+
+https://code-maze.com/cqrs-mediatr-fluentvalidation/
+https://timdows.com/projects/use-mediatr-with-fluentvalidation-in-the-asp-net-core-pipeline/
+
+
+
+
+
+
