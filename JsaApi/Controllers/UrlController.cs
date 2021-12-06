@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaUrl2BusinessController : ControllerBase
+    public class UrlController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaUrl2BusinessController(JobSearchAssistantContext context)
+        public UrlController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaUrl2Business
+        // GET: api/JsaUrls
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaUrl2Business>>> GetJsaUrl2Businesses()
+        public async Task<ActionResult<IEnumerable<JsaUrl>>> GetJsaUrls()
         {
-            return await _context.JsaUrl2Businesses.ToListAsync();
+            return await _context.JsaUrls.ToListAsync();
         }
 
-        // GET: api/JsaUrl2Business/5
+        // GET: api/JsaUrls/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaUrl2Business>> GetJsaUrl2Business(int id)
+        public async Task<ActionResult<JsaUrl>> GetJsaUrl(int id)
         {
-            var jsaUrl2Business = await _context.JsaUrl2Businesses.FindAsync(id);
+            var jsaUrl = await _context.JsaUrls.FindAsync(id);
 
-            if (jsaUrl2Business == null)
+            if (jsaUrl == null)
             {
                 return NotFound();
             }
 
-            return jsaUrl2Business;
+            return jsaUrl;
         }
 
-        // PUT: api/JsaUrl2Business/5
+        // PUT: api/JsaUrls/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaUrl2Business(int id, JsaUrl2Business jsaUrl2Business)
+        public async Task<IActionResult> PutJsaUrl(int id, JsaUrl jsaUrl)
         {
-            if (id != jsaUrl2Business.U2bId)
+            if (id != jsaUrl.UId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaUrl2Business).State = EntityState.Modified;
+            _context.Entry(jsaUrl).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaUrl2BusinessExists(id))
+                if (!JsaUrlExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaUrl2Business
+        // POST: api/JsaUrls
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaUrl2Business>> PostJsaUrl2Business(JsaUrl2Business jsaUrl2Business)
+        public async Task<ActionResult<JsaUrl>> PostJsaUrl(JsaUrl jsaUrl)
         {
-            _context.JsaUrl2Businesses.Add(jsaUrl2Business);
+            _context.JsaUrls.Add(jsaUrl);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaUrl2BusinessExists(jsaUrl2Business.U2bId))
+                if (JsaUrlExists(jsaUrl.UId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaUrl2Business", new { id = jsaUrl2Business.U2bId }, jsaUrl2Business);
+            return CreatedAtAction("GetJsaUrl", new { id = jsaUrl.UId }, jsaUrl);
         }
 
-        // DELETE: api/JsaUrl2Business/5
+        // DELETE: api/JsaUrls/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaUrl2Business(int id)
+        public async Task<IActionResult> DeleteJsaUrl(int id)
         {
-            var jsaUrl2Business = await _context.JsaUrl2Businesses.FindAsync(id);
-            if (jsaUrl2Business == null)
+            var jsaUrl = await _context.JsaUrls.FindAsync(id);
+            if (jsaUrl == null)
             {
                 return NotFound();
             }
 
-            _context.JsaUrl2Businesses.Remove(jsaUrl2Business);
+            _context.JsaUrls.Remove(jsaUrl);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaUrl2BusinessExists(int id)
+        private bool JsaUrlExists(int id)
         {
-            return _context.JsaUrl2Businesses.Any(e => e.U2bId == id);
+            return _context.JsaUrls.Any(e => e.UId == id);
         }
     }
 }

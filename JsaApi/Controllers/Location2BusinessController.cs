@@ -11,11 +11,11 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaLocation2BusinessController : ControllerBase
+    public class Location2BusinessController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaLocation2BusinessController(JobSearchAssistantContext context)
+        public Location2BusinessController(JobSearchAssistantContext context)
         {
             _context = context;
         }

@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaBusinessController : ControllerBase
+    public class ResultCategoryController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaBusinessController(JobSearchAssistantContext context)
+        public ResultCategoryController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaBusinesses
+        // GET: api/JsaResultCategories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaBusiness>>> GetJsaBusinesses()
+        public async Task<ActionResult<IEnumerable<JsaResultCategory>>> GetJsaResultCategories()
         {
-            return await _context.JsaBusinesses.ToListAsync();
+            return await _context.JsaResultCategories.ToListAsync();
         }
 
-        // GET: api/JsaBusinesses/5
+        // GET: api/JsaResultCategories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaBusiness>> GetJsaBusiness(int id)
+        public async Task<ActionResult<JsaResultCategory>> GetJsaResultCategory(int id)
         {
-            var jsaBusiness = await _context.JsaBusinesses.FindAsync(id);
+            var jsaResultCategory = await _context.JsaResultCategories.FindAsync(id);
 
-            if (jsaBusiness == null)
+            if (jsaResultCategory == null)
             {
                 return NotFound();
             }
 
-            return jsaBusiness;
+            return jsaResultCategory;
         }
 
-        // PUT: api/JsaBusinesses/5
+        // PUT: api/JsaResultCategories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaBusiness(int id, JsaBusiness jsaBusiness)
+        public async Task<IActionResult> PutJsaResultCategory(int id, JsaResultCategory jsaResultCategory)
         {
-            if (id != jsaBusiness.BId)
+            if (id != jsaResultCategory.RcId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaBusiness).State = EntityState.Modified;
+            _context.Entry(jsaResultCategory).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaBusinessExists(id))
+                if (!JsaResultCategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaBusinesses
+        // POST: api/JsaResultCategories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaBusiness>> PostJsaBusiness(JsaBusiness jsaBusiness)
+        public async Task<ActionResult<JsaResultCategory>> PostJsaResultCategory(JsaResultCategory jsaResultCategory)
         {
-            _context.JsaBusinesses.Add(jsaBusiness);
+            _context.JsaResultCategories.Add(jsaResultCategory);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaBusinessExists(jsaBusiness.BId))
+                if (JsaResultCategoryExists(jsaResultCategory.RcId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaBusiness", new { id = jsaBusiness.BId }, jsaBusiness);
+            return CreatedAtAction("GetJsaResultCategory", new { id = jsaResultCategory.RcId }, jsaResultCategory);
         }
 
-        // DELETE: api/JsaBusinesses/5
+        // DELETE: api/JsaResultCategories/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaBusiness(int id)
+        public async Task<IActionResult> DeleteJsaResultCategory(int id)
         {
-            var jsaBusiness = await _context.JsaBusinesses.FindAsync(id);
-            if (jsaBusiness == null)
+            var jsaResultCategory = await _context.JsaResultCategories.FindAsync(id);
+            if (jsaResultCategory == null)
             {
                 return NotFound();
             }
 
-            _context.JsaBusinesses.Remove(jsaBusiness);
+            _context.JsaResultCategories.Remove(jsaResultCategory);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaBusinessExists(int id)
+        private bool JsaResultCategoryExists(int id)
         {
-            return _context.JsaBusinesses.Any(e => e.BId == id);
+            return _context.JsaResultCategories.Any(e => e.RcId == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaPhone2BusinessController : ControllerBase
+    public class CountryController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaPhone2BusinessController(JobSearchAssistantContext context)
+        public CountryController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaPhone2Business
+        // GET: api/JsaCountries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaPhone2Business>>> GetJsaPhone2Businesses()
+        public async Task<ActionResult<IEnumerable<JsaCountry>>> GetJsaCountries()
         {
-            return await _context.JsaPhone2Businesses.ToListAsync();
+            return await _context.JsaCountries.ToListAsync();
         }
 
-        // GET: api/JsaPhone2Business/5
+        // GET: api/JsaCountries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaPhone2Business>> GetJsaPhone2Business(int id)
+        public async Task<ActionResult<JsaCountry>> GetJsaCountry(int id)
         {
-            var jsaPhone2Business = await _context.JsaPhone2Businesses.FindAsync(id);
+            var jsaCountry = await _context.JsaCountries.FindAsync(id);
 
-            if (jsaPhone2Business == null)
+            if (jsaCountry == null)
             {
                 return NotFound();
             }
 
-            return jsaPhone2Business;
+            return jsaCountry;
         }
 
-        // PUT: api/JsaPhone2Business/5
+        // PUT: api/JsaCountries/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaPhone2Business(int id, JsaPhone2Business jsaPhone2Business)
+        public async Task<IActionResult> PutJsaCountry(int id, JsaCountry jsaCountry)
         {
-            if (id != jsaPhone2Business.Ph2bId)
+            if (id != jsaCountry.CId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaPhone2Business).State = EntityState.Modified;
+            _context.Entry(jsaCountry).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaPhone2BusinessExists(id))
+                if (!JsaCountryExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaPhone2Business
+        // POST: api/JsaCountries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaPhone2Business>> PostJsaPhone2Business(JsaPhone2Business jsaPhone2Business)
+        public async Task<ActionResult<JsaCountry>> PostJsaCountry(JsaCountry jsaCountry)
         {
-            _context.JsaPhone2Businesses.Add(jsaPhone2Business);
+            _context.JsaCountries.Add(jsaCountry);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaPhone2BusinessExists(jsaPhone2Business.Ph2bId))
+                if (JsaCountryExists(jsaCountry.CId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaPhone2Business", new { id = jsaPhone2Business.Ph2bId }, jsaPhone2Business);
+            return CreatedAtAction("GetJsaCountry", new { id = jsaCountry.CId }, jsaCountry);
         }
 
-        // DELETE: api/JsaPhone2Business/5
+        // DELETE: api/JsaCountries/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaPhone2Business(int id)
+        public async Task<IActionResult> DeleteJsaCountry(int id)
         {
-            var jsaPhone2Business = await _context.JsaPhone2Businesses.FindAsync(id);
-            if (jsaPhone2Business == null)
+            var jsaCountry = await _context.JsaCountries.FindAsync(id);
+            if (jsaCountry == null)
             {
                 return NotFound();
             }
 
-            _context.JsaPhone2Businesses.Remove(jsaPhone2Business);
+            _context.JsaCountries.Remove(jsaCountry);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaPhone2BusinessExists(int id)
+        private bool JsaCountryExists(int id)
         {
-            return _context.JsaPhone2Businesses.Any(e => e.Ph2bId == id);
+            return _context.JsaCountries.Any(e => e.CId == id);
         }
     }
 }

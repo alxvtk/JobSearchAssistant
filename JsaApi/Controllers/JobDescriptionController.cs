@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaResumeController : ControllerBase
+    public class JobDescriptionController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaResumeController(JobSearchAssistantContext context)
+        public JobDescriptionController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaResumes
+        // GET: api/JsaJobDescriptions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaResume>>> GetJsaResumes()
+        public async Task<ActionResult<IEnumerable<JsaJobDescription>>> GetJsaJobDescriptions()
         {
-            return await _context.JsaResumes.ToListAsync();
+            return await _context.JsaJobDescriptions.ToListAsync();
         }
 
-        // GET: api/JsaResumes/5
+        // GET: api/JsaJobDescriptions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaResume>> GetJsaResume(int id)
+        public async Task<ActionResult<JsaJobDescription>> GetJsaJobDescription(int id)
         {
-            var jsaResume = await _context.JsaResumes.FindAsync(id);
+            var jsaJobDescription = await _context.JsaJobDescriptions.FindAsync(id);
 
-            if (jsaResume == null)
+            if (jsaJobDescription == null)
             {
                 return NotFound();
             }
 
-            return jsaResume;
+            return jsaJobDescription;
         }
 
-        // PUT: api/JsaResumes/5
+        // PUT: api/JsaJobDescriptions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaResume(int id, JsaResume jsaResume)
+        public async Task<IActionResult> PutJsaJobDescription(int id, JsaJobDescription jsaJobDescription)
         {
-            if (id != jsaResume.RId)
+            if (id != jsaJobDescription.JdId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaResume).State = EntityState.Modified;
+            _context.Entry(jsaJobDescription).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaResumeExists(id))
+                if (!JsaJobDescriptionExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaResumes
+        // POST: api/JsaJobDescriptions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaResume>> PostJsaResume(JsaResume jsaResume)
+        public async Task<ActionResult<JsaJobDescription>> PostJsaJobDescription(JsaJobDescription jsaJobDescription)
         {
-            _context.JsaResumes.Add(jsaResume);
+            _context.JsaJobDescriptions.Add(jsaJobDescription);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaResumeExists(jsaResume.RId))
+                if (JsaJobDescriptionExists(jsaJobDescription.JdId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaResume", new { id = jsaResume.RId }, jsaResume);
+            return CreatedAtAction("GetJsaJobDescription", new { id = jsaJobDescription.JdId }, jsaJobDescription);
         }
 
-        // DELETE: api/JsaResumes/5
+        // DELETE: api/JsaJobDescriptions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaResume(int id)
+        public async Task<IActionResult> DeleteJsaJobDescription(int id)
         {
-            var jsaResume = await _context.JsaResumes.FindAsync(id);
-            if (jsaResume == null)
+            var jsaJobDescription = await _context.JsaJobDescriptions.FindAsync(id);
+            if (jsaJobDescription == null)
             {
                 return NotFound();
             }
 
-            _context.JsaResumes.Remove(jsaResume);
+            _context.JsaJobDescriptions.Remove(jsaJobDescription);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaResumeExists(int id)
+        private bool JsaJobDescriptionExists(int id)
         {
-            return _context.JsaResumes.Any(e => e.RId == id);
+            return _context.JsaJobDescriptions.Any(e => e.JdId == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaPhoneController : ControllerBase
+    public class Phone2PersonController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaPhoneController(JobSearchAssistantContext context)
+        public Phone2PersonController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaPhones
+        // GET: api/JsaPhone2Person
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaPhone>>> GetJsaPhones()
+        public async Task<ActionResult<IEnumerable<JsaPhone2Person>>> GetJsaPhone2People()
         {
-            return await _context.JsaPhones.ToListAsync();
+            return await _context.JsaPhone2People.ToListAsync();
         }
 
-        // GET: api/JsaPhones/5
+        // GET: api/JsaPhone2Person/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaPhone>> GetJsaPhone(int id)
+        public async Task<ActionResult<JsaPhone2Person>> GetJsaPhone2Person(int id)
         {
-            var jsaPhone = await _context.JsaPhones.FindAsync(id);
+            var jsaPhone2Person = await _context.JsaPhone2People.FindAsync(id);
 
-            if (jsaPhone == null)
+            if (jsaPhone2Person == null)
             {
                 return NotFound();
             }
 
-            return jsaPhone;
+            return jsaPhone2Person;
         }
 
-        // PUT: api/JsaPhones/5
+        // PUT: api/JsaPhone2Person/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaPhone(int id, JsaPhone jsaPhone)
+        public async Task<IActionResult> PutJsaPhone2Person(int id, JsaPhone2Person jsaPhone2Person)
         {
-            if (id != jsaPhone.PhId)
+            if (id != jsaPhone2Person.Ph2pId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaPhone).State = EntityState.Modified;
+            _context.Entry(jsaPhone2Person).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaPhoneExists(id))
+                if (!JsaPhone2PersonExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaPhones
+        // POST: api/JsaPhone2Person
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaPhone>> PostJsaPhone(JsaPhone jsaPhone)
+        public async Task<ActionResult<JsaPhone2Person>> PostJsaPhone2Person(JsaPhone2Person jsaPhone2Person)
         {
-            _context.JsaPhones.Add(jsaPhone);
+            _context.JsaPhone2People.Add(jsaPhone2Person);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaPhoneExists(jsaPhone.PhId))
+                if (JsaPhone2PersonExists(jsaPhone2Person.Ph2pId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaPhone", new { id = jsaPhone.PhId }, jsaPhone);
+            return CreatedAtAction("GetJsaPhone2Person", new { id = jsaPhone2Person.Ph2pId }, jsaPhone2Person);
         }
 
-        // DELETE: api/JsaPhones/5
+        // DELETE: api/JsaPhone2Person/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaPhone(int id)
+        public async Task<IActionResult> DeleteJsaPhone2Person(int id)
         {
-            var jsaPhone = await _context.JsaPhones.FindAsync(id);
-            if (jsaPhone == null)
+            var jsaPhone2Person = await _context.JsaPhone2People.FindAsync(id);
+            if (jsaPhone2Person == null)
             {
                 return NotFound();
             }
 
-            _context.JsaPhones.Remove(jsaPhone);
+            _context.JsaPhone2People.Remove(jsaPhone2Person);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaPhoneExists(int id)
+        private bool JsaPhone2PersonExists(int id)
         {
-            return _context.JsaPhones.Any(e => e.PhId == id);
+            return _context.JsaPhone2People.Any(e => e.Ph2pId == id);
         }
     }
 }

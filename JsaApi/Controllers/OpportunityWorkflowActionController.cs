@@ -11,11 +11,11 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaOpportunityWorkflowActionController : ControllerBase
+    public class OpportunityWorkflowActionController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaOpportunityWorkflowActionController(JobSearchAssistantContext context)
+        public OpportunityWorkflowActionController(JobSearchAssistantContext context)
         {
             _context = context;
         }

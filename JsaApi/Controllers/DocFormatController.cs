@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaLocationController : ControllerBase
+    public class DocFormatController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaLocationController(JobSearchAssistantContext context)
+        public DocFormatController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaLocations
+        // GET: api/JsaDocFormats
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaLocation>>> GetJsaLocations()
+        public async Task<ActionResult<IEnumerable<JsaDocFormat>>> GetJsaDocFormats()
         {
-            return await _context.JsaLocations.ToListAsync();
+            return await _context.JsaDocFormats.ToListAsync();
         }
 
-        // GET: api/JsaLocations/5
+        // GET: api/JsaDocFormats/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaLocation>> GetJsaLocation(int id)
+        public async Task<ActionResult<JsaDocFormat>> GetJsaDocFormat(int id)
         {
-            var jsaLocation = await _context.JsaLocations.FindAsync(id);
+            var jsaDocFormat = await _context.JsaDocFormats.FindAsync(id);
 
-            if (jsaLocation == null)
+            if (jsaDocFormat == null)
             {
                 return NotFound();
             }
 
-            return jsaLocation;
+            return jsaDocFormat;
         }
 
-        // PUT: api/JsaLocations/5
+        // PUT: api/JsaDocFormats/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaLocation(int id, JsaLocation jsaLocation)
+        public async Task<IActionResult> PutJsaDocFormat(int id, JsaDocFormat jsaDocFormat)
         {
-            if (id != jsaLocation.LId)
+            if (id != jsaDocFormat.DfId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaLocation).State = EntityState.Modified;
+            _context.Entry(jsaDocFormat).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaLocationExists(id))
+                if (!JsaDocFormatExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaLocations
+        // POST: api/JsaDocFormats
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaLocation>> PostJsaLocation(JsaLocation jsaLocation)
+        public async Task<ActionResult<JsaDocFormat>> PostJsaDocFormat(JsaDocFormat jsaDocFormat)
         {
-            _context.JsaLocations.Add(jsaLocation);
+            _context.JsaDocFormats.Add(jsaDocFormat);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaLocationExists(jsaLocation.LId))
+                if (JsaDocFormatExists(jsaDocFormat.DfId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaLocation", new { id = jsaLocation.LId }, jsaLocation);
+            return CreatedAtAction("GetJsaDocFormat", new { id = jsaDocFormat.DfId }, jsaDocFormat);
         }
 
-        // DELETE: api/JsaLocations/5
+        // DELETE: api/JsaDocFormats/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaLocation(int id)
+        public async Task<IActionResult> DeleteJsaDocFormat(int id)
         {
-            var jsaLocation = await _context.JsaLocations.FindAsync(id);
-            if (jsaLocation == null)
+            var jsaDocFormat = await _context.JsaDocFormats.FindAsync(id);
+            if (jsaDocFormat == null)
             {
                 return NotFound();
             }
 
-            _context.JsaLocations.Remove(jsaLocation);
+            _context.JsaDocFormats.Remove(jsaDocFormat);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaLocationExists(int id)
+        private bool JsaDocFormatExists(int id)
         {
-            return _context.JsaLocations.Any(e => e.LId == id);
+            return _context.JsaDocFormats.Any(e => e.DfId == id);
         }
     }
 }

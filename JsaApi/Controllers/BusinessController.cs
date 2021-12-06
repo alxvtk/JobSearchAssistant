@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaOpportunityController : ControllerBase
+    public class BusinessController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaOpportunityController(JobSearchAssistantContext context)
+        public BusinessController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaOpportunities
+        // GET: api/JsaBusinesses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaOpportunity>>> GetJsaOpportunities()
+        public async Task<ActionResult<IEnumerable<JsaBusiness>>> GetJsaBusinesses()
         {
-            return await _context.JsaOpportunities.ToListAsync();
+            return await _context.JsaBusinesses.ToListAsync();
         }
 
-        // GET: api/JsaOpportunities/5
+        // GET: api/JsaBusinesses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaOpportunity>> GetJsaOpportunity(int id)
+        public async Task<ActionResult<JsaBusiness>> GetJsaBusiness(int id)
         {
-            var jsaOpportunity = await _context.JsaOpportunities.FindAsync(id);
+            var jsaBusiness = await _context.JsaBusinesses.FindAsync(id);
 
-            if (jsaOpportunity == null)
+            if (jsaBusiness == null)
             {
                 return NotFound();
             }
 
-            return jsaOpportunity;
+            return jsaBusiness;
         }
 
-        // PUT: api/JsaOpportunities/5
+        // PUT: api/JsaBusinesses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaOpportunity(int id, JsaOpportunity jsaOpportunity)
+        public async Task<IActionResult> PutJsaBusiness(int id, JsaBusiness jsaBusiness)
         {
-            if (id != jsaOpportunity.OId)
+            if (id != jsaBusiness.BId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaOpportunity).State = EntityState.Modified;
+            _context.Entry(jsaBusiness).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaOpportunityExists(id))
+                if (!JsaBusinessExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaOpportunities
+        // POST: api/JsaBusinesses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaOpportunity>> PostJsaOpportunity(JsaOpportunity jsaOpportunity)
+        public async Task<ActionResult<JsaBusiness>> PostJsaBusiness(JsaBusiness jsaBusiness)
         {
-            _context.JsaOpportunities.Add(jsaOpportunity);
+            _context.JsaBusinesses.Add(jsaBusiness);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaOpportunityExists(jsaOpportunity.OId))
+                if (JsaBusinessExists(jsaBusiness.BId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaOpportunity", new { id = jsaOpportunity.OId }, jsaOpportunity);
+            return CreatedAtAction("GetJsaBusiness", new { id = jsaBusiness.BId }, jsaBusiness);
         }
 
-        // DELETE: api/JsaOpportunities/5
+        // DELETE: api/JsaBusinesses/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaOpportunity(int id)
+        public async Task<IActionResult> DeleteJsaBusiness(int id)
         {
-            var jsaOpportunity = await _context.JsaOpportunities.FindAsync(id);
-            if (jsaOpportunity == null)
+            var jsaBusiness = await _context.JsaBusinesses.FindAsync(id);
+            if (jsaBusiness == null)
             {
                 return NotFound();
             }
 
-            _context.JsaOpportunities.Remove(jsaOpportunity);
+            _context.JsaBusinesses.Remove(jsaBusiness);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaOpportunityExists(int id)
+        private bool JsaBusinessExists(int id)
         {
-            return _context.JsaOpportunities.Any(e => e.OId == id);
+            return _context.JsaBusinesses.Any(e => e.BId == id);
         }
     }
 }

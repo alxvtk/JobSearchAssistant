@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaCountryController : ControllerBase
+    public class OpportunityController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaCountryController(JobSearchAssistantContext context)
+        public OpportunityController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaCountries
+        // GET: api/JsaOpportunities
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaCountry>>> GetJsaCountries()
+        public async Task<ActionResult<IEnumerable<JsaOpportunity>>> GetJsaOpportunities()
         {
-            return await _context.JsaCountries.ToListAsync();
+            return await _context.JsaOpportunities.ToListAsync();
         }
 
-        // GET: api/JsaCountries/5
+        // GET: api/JsaOpportunities/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaCountry>> GetJsaCountry(int id)
+        public async Task<ActionResult<JsaOpportunity>> GetJsaOpportunity(int id)
         {
-            var jsaCountry = await _context.JsaCountries.FindAsync(id);
+            var jsaOpportunity = await _context.JsaOpportunities.FindAsync(id);
 
-            if (jsaCountry == null)
+            if (jsaOpportunity == null)
             {
                 return NotFound();
             }
 
-            return jsaCountry;
+            return jsaOpportunity;
         }
 
-        // PUT: api/JsaCountries/5
+        // PUT: api/JsaOpportunities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaCountry(int id, JsaCountry jsaCountry)
+        public async Task<IActionResult> PutJsaOpportunity(int id, JsaOpportunity jsaOpportunity)
         {
-            if (id != jsaCountry.CId)
+            if (id != jsaOpportunity.OId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaCountry).State = EntityState.Modified;
+            _context.Entry(jsaOpportunity).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaCountryExists(id))
+                if (!JsaOpportunityExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaCountries
+        // POST: api/JsaOpportunities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaCountry>> PostJsaCountry(JsaCountry jsaCountry)
+        public async Task<ActionResult<JsaOpportunity>> PostJsaOpportunity(JsaOpportunity jsaOpportunity)
         {
-            _context.JsaCountries.Add(jsaCountry);
+            _context.JsaOpportunities.Add(jsaOpportunity);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaCountryExists(jsaCountry.CId))
+                if (JsaOpportunityExists(jsaOpportunity.OId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaCountry", new { id = jsaCountry.CId }, jsaCountry);
+            return CreatedAtAction("GetJsaOpportunity", new { id = jsaOpportunity.OId }, jsaOpportunity);
         }
 
-        // DELETE: api/JsaCountries/5
+        // DELETE: api/JsaOpportunities/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaCountry(int id)
+        public async Task<IActionResult> DeleteJsaOpportunity(int id)
         {
-            var jsaCountry = await _context.JsaCountries.FindAsync(id);
-            if (jsaCountry == null)
+            var jsaOpportunity = await _context.JsaOpportunities.FindAsync(id);
+            if (jsaOpportunity == null)
             {
                 return NotFound();
             }
 
-            _context.JsaCountries.Remove(jsaCountry);
+            _context.JsaOpportunities.Remove(jsaOpportunity);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaCountryExists(int id)
+        private bool JsaOpportunityExists(int id)
         {
-            return _context.JsaCountries.Any(e => e.CId == id);
+            return _context.JsaOpportunities.Any(e => e.OId == id);
         }
     }
 }

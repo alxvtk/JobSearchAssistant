@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaUserController : ControllerBase
+    public class Location2PersonController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaUserController(JobSearchAssistantContext context)
+        public Location2PersonController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaUsers
+        // GET: api/JsaLocation2Person
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaUser>>> GetJsaUsers()
+        public async Task<ActionResult<IEnumerable<JsaLocation2Person>>> GetJsaLocation2People()
         {
-            return await _context.JsaUsers.ToListAsync();
+            return await _context.JsaLocation2People.ToListAsync();
         }
 
-        // GET: api/JsaUsers/5
+        // GET: api/JsaLocation2Person/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaUser>> GetJsaUser(int id)
+        public async Task<ActionResult<JsaLocation2Person>> GetJsaLocation2Person(int id)
         {
-            var jsaUser = await _context.JsaUsers.FindAsync(id);
+            var jsaLocation2Person = await _context.JsaLocation2People.FindAsync(id);
 
-            if (jsaUser == null)
+            if (jsaLocation2Person == null)
             {
                 return NotFound();
             }
 
-            return jsaUser;
+            return jsaLocation2Person;
         }
 
-        // PUT: api/JsaUsers/5
+        // PUT: api/JsaLocation2Person/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaUser(int id, JsaUser jsaUser)
+        public async Task<IActionResult> PutJsaLocation2Person(int id, JsaLocation2Person jsaLocation2Person)
         {
-            if (id != jsaUser.UsrId)
+            if (id != jsaLocation2Person.L2pId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaUser).State = EntityState.Modified;
+            _context.Entry(jsaLocation2Person).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaUserExists(id))
+                if (!JsaLocation2PersonExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaUsers
+        // POST: api/JsaLocation2Person
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaUser>> PostJsaUser(JsaUser jsaUser)
+        public async Task<ActionResult<JsaLocation2Person>> PostJsaLocation2Person(JsaLocation2Person jsaLocation2Person)
         {
-            _context.JsaUsers.Add(jsaUser);
+            _context.JsaLocation2People.Add(jsaLocation2Person);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaUserExists(jsaUser.UsrId))
+                if (JsaLocation2PersonExists(jsaLocation2Person.L2pId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaUser", new { id = jsaUser.UsrId }, jsaUser);
+            return CreatedAtAction("GetJsaLocation2Person", new { id = jsaLocation2Person.L2pId }, jsaLocation2Person);
         }
 
-        // DELETE: api/JsaUsers/5
+        // DELETE: api/JsaLocation2Person/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaUser(int id)
+        public async Task<IActionResult> DeleteJsaLocation2Person(int id)
         {
-            var jsaUser = await _context.JsaUsers.FindAsync(id);
-            if (jsaUser == null)
+            var jsaLocation2Person = await _context.JsaLocation2People.FindAsync(id);
+            if (jsaLocation2Person == null)
             {
                 return NotFound();
             }
 
-            _context.JsaUsers.Remove(jsaUser);
+            _context.JsaLocation2People.Remove(jsaLocation2Person);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaUserExists(int id)
+        private bool JsaLocation2PersonExists(int id)
         {
-            return _context.JsaUsers.Any(e => e.UsrId == id);
+            return _context.JsaLocation2People.Any(e => e.L2pId == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaDocumentController : ControllerBase
+    public class ResumeController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaDocumentController(JobSearchAssistantContext context)
+        public ResumeController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaDocuments
+        // GET: api/JsaResumes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaDocument>>> GetJsaDocuments()
+        public async Task<ActionResult<IEnumerable<JsaResume>>> GetJsaResumes()
         {
-            return await _context.JsaDocuments.ToListAsync();
+            return await _context.JsaResumes.ToListAsync();
         }
 
-        // GET: api/JsaDocuments/5
+        // GET: api/JsaResumes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaDocument>> GetJsaDocument(int id)
+        public async Task<ActionResult<JsaResume>> GetJsaResume(int id)
         {
-            var jsaDocument = await _context.JsaDocuments.FindAsync(id);
+            var jsaResume = await _context.JsaResumes.FindAsync(id);
 
-            if (jsaDocument == null)
+            if (jsaResume == null)
             {
                 return NotFound();
             }
 
-            return jsaDocument;
+            return jsaResume;
         }
 
-        // PUT: api/JsaDocuments/5
+        // PUT: api/JsaResumes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaDocument(int id, JsaDocument jsaDocument)
+        public async Task<IActionResult> PutJsaResume(int id, JsaResume jsaResume)
         {
-            if (id != jsaDocument.DId)
+            if (id != jsaResume.RId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaDocument).State = EntityState.Modified;
+            _context.Entry(jsaResume).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaDocumentExists(id))
+                if (!JsaResumeExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaDocuments
+        // POST: api/JsaResumes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaDocument>> PostJsaDocument(JsaDocument jsaDocument)
+        public async Task<ActionResult<JsaResume>> PostJsaResume(JsaResume jsaResume)
         {
-            _context.JsaDocuments.Add(jsaDocument);
+            _context.JsaResumes.Add(jsaResume);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaDocumentExists(jsaDocument.DId))
+                if (JsaResumeExists(jsaResume.RId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaDocument", new { id = jsaDocument.DId }, jsaDocument);
+            return CreatedAtAction("GetJsaResume", new { id = jsaResume.RId }, jsaResume);
         }
 
-        // DELETE: api/JsaDocuments/5
+        // DELETE: api/JsaResumes/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaDocument(int id)
+        public async Task<IActionResult> DeleteJsaResume(int id)
         {
-            var jsaDocument = await _context.JsaDocuments.FindAsync(id);
-            if (jsaDocument == null)
+            var jsaResume = await _context.JsaResumes.FindAsync(id);
+            if (jsaResume == null)
             {
                 return NotFound();
             }
 
-            _context.JsaDocuments.Remove(jsaDocument);
+            _context.JsaResumes.Remove(jsaResume);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaDocumentExists(int id)
+        private bool JsaResumeExists(int id)
         {
-            return _context.JsaDocuments.Any(e => e.DId == id);
+            return _context.JsaResumes.Any(e => e.RId == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaLocation2PersonController : ControllerBase
+    public class EmailController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaLocation2PersonController(JobSearchAssistantContext context)
+        public EmailController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaLocation2Person
+        // GET: api/JsaEmails
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaLocation2Person>>> GetJsaLocation2People()
+        public async Task<ActionResult<IEnumerable<JsaEmail>>> GetJsaEmails()
         {
-            return await _context.JsaLocation2People.ToListAsync();
+            return await _context.JsaEmails.ToListAsync();
         }
 
-        // GET: api/JsaLocation2Person/5
+        // GET: api/JsaEmails/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaLocation2Person>> GetJsaLocation2Person(int id)
+        public async Task<ActionResult<JsaEmail>> GetJsaEmail(int id)
         {
-            var jsaLocation2Person = await _context.JsaLocation2People.FindAsync(id);
+            var jsaEmail = await _context.JsaEmails.FindAsync(id);
 
-            if (jsaLocation2Person == null)
+            if (jsaEmail == null)
             {
                 return NotFound();
             }
 
-            return jsaLocation2Person;
+            return jsaEmail;
         }
 
-        // PUT: api/JsaLocation2Person/5
+        // PUT: api/JsaEmails/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaLocation2Person(int id, JsaLocation2Person jsaLocation2Person)
+        public async Task<IActionResult> PutJsaEmail(int id, JsaEmail jsaEmail)
         {
-            if (id != jsaLocation2Person.L2pId)
+            if (id != jsaEmail.EId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaLocation2Person).State = EntityState.Modified;
+            _context.Entry(jsaEmail).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaLocation2PersonExists(id))
+                if (!JsaEmailExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaLocation2Person
+        // POST: api/JsaEmails
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaLocation2Person>> PostJsaLocation2Person(JsaLocation2Person jsaLocation2Person)
+        public async Task<ActionResult<JsaEmail>> PostJsaEmail(JsaEmail jsaEmail)
         {
-            _context.JsaLocation2People.Add(jsaLocation2Person);
+            _context.JsaEmails.Add(jsaEmail);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaLocation2PersonExists(jsaLocation2Person.L2pId))
+                if (JsaEmailExists(jsaEmail.EId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaLocation2Person", new { id = jsaLocation2Person.L2pId }, jsaLocation2Person);
+            return CreatedAtAction("GetJsaEmail", new { id = jsaEmail.EId }, jsaEmail);
         }
 
-        // DELETE: api/JsaLocation2Person/5
+        // DELETE: api/JsaEmails/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaLocation2Person(int id)
+        public async Task<IActionResult> DeleteJsaEmail(int id)
         {
-            var jsaLocation2Person = await _context.JsaLocation2People.FindAsync(id);
-            if (jsaLocation2Person == null)
+            var jsaEmail = await _context.JsaEmails.FindAsync(id);
+            if (jsaEmail == null)
             {
                 return NotFound();
             }
 
-            _context.JsaLocation2People.Remove(jsaLocation2Person);
+            _context.JsaEmails.Remove(jsaEmail);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaLocation2PersonExists(int id)
+        private bool JsaEmailExists(int id)
         {
-            return _context.JsaLocation2People.Any(e => e.L2pId == id);
+            return _context.JsaEmails.Any(e => e.EId == id);
         }
     }
 }

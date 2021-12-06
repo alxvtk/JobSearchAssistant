@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaSourceTypeController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaSourceTypeController(JobSearchAssistantContext context)
+        public UserController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaSourceTypes
+        // GET: api/JsaUsers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaSourceType>>> GetJsaSourceTypes()
+        public async Task<ActionResult<IEnumerable<JsaUser>>> GetJsaUsers()
         {
-            return await _context.JsaSourceTypes.ToListAsync();
+            return await _context.JsaUsers.ToListAsync();
         }
 
-        // GET: api/JsaSourceTypes/5
+        // GET: api/JsaUsers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaSourceType>> GetJsaSourceType(int id)
+        public async Task<ActionResult<JsaUser>> GetJsaUser(int id)
         {
-            var jsaSourceType = await _context.JsaSourceTypes.FindAsync(id);
+            var jsaUser = await _context.JsaUsers.FindAsync(id);
 
-            if (jsaSourceType == null)
+            if (jsaUser == null)
             {
                 return NotFound();
             }
 
-            return jsaSourceType;
+            return jsaUser;
         }
 
-        // PUT: api/JsaSourceTypes/5
+        // PUT: api/JsaUsers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaSourceType(int id, JsaSourceType jsaSourceType)
+        public async Task<IActionResult> PutJsaUser(int id, JsaUser jsaUser)
         {
-            if (id != jsaSourceType.StId)
+            if (id != jsaUser.UsrId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaSourceType).State = EntityState.Modified;
+            _context.Entry(jsaUser).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaSourceTypeExists(id))
+                if (!JsaUserExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaSourceTypes
+        // POST: api/JsaUsers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaSourceType>> PostJsaSourceType(JsaSourceType jsaSourceType)
+        public async Task<ActionResult<JsaUser>> PostJsaUser(JsaUser jsaUser)
         {
-            _context.JsaSourceTypes.Add(jsaSourceType);
+            _context.JsaUsers.Add(jsaUser);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaSourceTypeExists(jsaSourceType.StId))
+                if (JsaUserExists(jsaUser.UsrId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaSourceType", new { id = jsaSourceType.StId }, jsaSourceType);
+            return CreatedAtAction("GetJsaUser", new { id = jsaUser.UsrId }, jsaUser);
         }
 
-        // DELETE: api/JsaSourceTypes/5
+        // DELETE: api/JsaUsers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaSourceType(int id)
+        public async Task<IActionResult> DeleteJsaUser(int id)
         {
-            var jsaSourceType = await _context.JsaSourceTypes.FindAsync(id);
-            if (jsaSourceType == null)
+            var jsaUser = await _context.JsaUsers.FindAsync(id);
+            if (jsaUser == null)
             {
                 return NotFound();
             }
 
-            _context.JsaSourceTypes.Remove(jsaSourceType);
+            _context.JsaUsers.Remove(jsaUser);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaSourceTypeExists(int id)
+        private bool JsaUserExists(int id)
         {
-            return _context.JsaSourceTypes.Any(e => e.StId == id);
+            return _context.JsaUsers.Any(e => e.UsrId == id);
         }
     }
 }

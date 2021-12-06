@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaEmailController : ControllerBase
+    public class Email2PersonController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaEmailController(JobSearchAssistantContext context)
+        public Email2PersonController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaEmails
+        // GET: api/JsaEmail2Person
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaEmail>>> GetJsaEmails()
+        public async Task<ActionResult<IEnumerable<JsaEmail2Person>>> GetJsaEmail2People()
         {
-            return await _context.JsaEmails.ToListAsync();
+            return await _context.JsaEmail2People.ToListAsync();
         }
 
-        // GET: api/JsaEmails/5
+        // GET: api/JsaEmail2Person/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaEmail>> GetJsaEmail(int id)
+        public async Task<ActionResult<JsaEmail2Person>> GetJsaEmail2Person(int id)
         {
-            var jsaEmail = await _context.JsaEmails.FindAsync(id);
+            var jsaEmail2Person = await _context.JsaEmail2People.FindAsync(id);
 
-            if (jsaEmail == null)
+            if (jsaEmail2Person == null)
             {
                 return NotFound();
             }
 
-            return jsaEmail;
+            return jsaEmail2Person;
         }
 
-        // PUT: api/JsaEmails/5
+        // PUT: api/JsaEmail2Person/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaEmail(int id, JsaEmail jsaEmail)
+        public async Task<IActionResult> PutJsaEmail2Person(int id, JsaEmail2Person jsaEmail2Person)
         {
-            if (id != jsaEmail.EId)
+            if (id != jsaEmail2Person.E2pId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaEmail).State = EntityState.Modified;
+            _context.Entry(jsaEmail2Person).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaEmailExists(id))
+                if (!JsaEmail2PersonExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaEmails
+        // POST: api/JsaEmail2Person
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaEmail>> PostJsaEmail(JsaEmail jsaEmail)
+        public async Task<ActionResult<JsaEmail2Person>> PostJsaEmail2Person(JsaEmail2Person jsaEmail2Person)
         {
-            _context.JsaEmails.Add(jsaEmail);
+            _context.JsaEmail2People.Add(jsaEmail2Person);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaEmailExists(jsaEmail.EId))
+                if (JsaEmail2PersonExists(jsaEmail2Person.E2pId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaEmail", new { id = jsaEmail.EId }, jsaEmail);
+            return CreatedAtAction("GetJsaEmail2Person", new { id = jsaEmail2Person.E2pId }, jsaEmail2Person);
         }
 
-        // DELETE: api/JsaEmails/5
+        // DELETE: api/JsaEmail2Person/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaEmail(int id)
+        public async Task<IActionResult> DeleteJsaEmail2Person(int id)
         {
-            var jsaEmail = await _context.JsaEmails.FindAsync(id);
-            if (jsaEmail == null)
+            var jsaEmail2Person = await _context.JsaEmail2People.FindAsync(id);
+            if (jsaEmail2Person == null)
             {
                 return NotFound();
             }
 
-            _context.JsaEmails.Remove(jsaEmail);
+            _context.JsaEmail2People.Remove(jsaEmail2Person);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaEmailExists(int id)
+        private bool JsaEmail2PersonExists(int id)
         {
-            return _context.JsaEmails.Any(e => e.EId == id);
+            return _context.JsaEmail2People.Any(e => e.E2pId == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaPhone2PersonController : ControllerBase
+    public class Email2BusinessController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaPhone2PersonController(JobSearchAssistantContext context)
+        public Email2BusinessController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaPhone2Person
+        // GET: api/JsaEmail2Business
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaPhone2Person>>> GetJsaPhone2People()
+        public async Task<ActionResult<IEnumerable<JsaEmail2Business>>> GetJsaEmail2Businesses()
         {
-            return await _context.JsaPhone2People.ToListAsync();
+            return await _context.JsaEmail2Businesses.ToListAsync();
         }
 
-        // GET: api/JsaPhone2Person/5
+        // GET: api/JsaEmail2Business/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaPhone2Person>> GetJsaPhone2Person(int id)
+        public async Task<ActionResult<JsaEmail2Business>> GetJsaEmail2Business(int id)
         {
-            var jsaPhone2Person = await _context.JsaPhone2People.FindAsync(id);
+            var jsaEmail2Business = await _context.JsaEmail2Businesses.FindAsync(id);
 
-            if (jsaPhone2Person == null)
+            if (jsaEmail2Business == null)
             {
                 return NotFound();
             }
 
-            return jsaPhone2Person;
+            return jsaEmail2Business;
         }
 
-        // PUT: api/JsaPhone2Person/5
+        // PUT: api/JsaEmail2Business/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaPhone2Person(int id, JsaPhone2Person jsaPhone2Person)
+        public async Task<IActionResult> PutJsaEmail2Business(int id, JsaEmail2Business jsaEmail2Business)
         {
-            if (id != jsaPhone2Person.Ph2pId)
+            if (id != jsaEmail2Business.E2bId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaPhone2Person).State = EntityState.Modified;
+            _context.Entry(jsaEmail2Business).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaPhone2PersonExists(id))
+                if (!JsaEmail2BusinessExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaPhone2Person
+        // POST: api/JsaEmail2Business
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaPhone2Person>> PostJsaPhone2Person(JsaPhone2Person jsaPhone2Person)
+        public async Task<ActionResult<JsaEmail2Business>> PostJsaEmail2Business(JsaEmail2Business jsaEmail2Business)
         {
-            _context.JsaPhone2People.Add(jsaPhone2Person);
+            _context.JsaEmail2Businesses.Add(jsaEmail2Business);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaPhone2PersonExists(jsaPhone2Person.Ph2pId))
+                if (JsaEmail2BusinessExists(jsaEmail2Business.E2bId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaPhone2Person", new { id = jsaPhone2Person.Ph2pId }, jsaPhone2Person);
+            return CreatedAtAction("GetJsaEmail2Business", new { id = jsaEmail2Business.E2bId }, jsaEmail2Business);
         }
 
-        // DELETE: api/JsaPhone2Person/5
+        // DELETE: api/JsaEmail2Business/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaPhone2Person(int id)
+        public async Task<IActionResult> DeleteJsaEmail2Business(int id)
         {
-            var jsaPhone2Person = await _context.JsaPhone2People.FindAsync(id);
-            if (jsaPhone2Person == null)
+            var jsaEmail2Business = await _context.JsaEmail2Businesses.FindAsync(id);
+            if (jsaEmail2Business == null)
             {
                 return NotFound();
             }
 
-            _context.JsaPhone2People.Remove(jsaPhone2Person);
+            _context.JsaEmail2Businesses.Remove(jsaEmail2Business);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaPhone2PersonExists(int id)
+        private bool JsaEmail2BusinessExists(int id)
         {
-            return _context.JsaPhone2People.Any(e => e.Ph2pId == id);
+            return _context.JsaEmail2Businesses.Any(e => e.E2bId == id);
         }
     }
 }

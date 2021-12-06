@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaResultCategoryController : ControllerBase
+    public class Phone2BusinessController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaResultCategoryController(JobSearchAssistantContext context)
+        public Phone2BusinessController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaResultCategories
+        // GET: api/JsaPhone2Business
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaResultCategory>>> GetJsaResultCategories()
+        public async Task<ActionResult<IEnumerable<JsaPhone2Business>>> GetJsaPhone2Businesses()
         {
-            return await _context.JsaResultCategories.ToListAsync();
+            return await _context.JsaPhone2Businesses.ToListAsync();
         }
 
-        // GET: api/JsaResultCategories/5
+        // GET: api/JsaPhone2Business/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaResultCategory>> GetJsaResultCategory(int id)
+        public async Task<ActionResult<JsaPhone2Business>> GetJsaPhone2Business(int id)
         {
-            var jsaResultCategory = await _context.JsaResultCategories.FindAsync(id);
+            var jsaPhone2Business = await _context.JsaPhone2Businesses.FindAsync(id);
 
-            if (jsaResultCategory == null)
+            if (jsaPhone2Business == null)
             {
                 return NotFound();
             }
 
-            return jsaResultCategory;
+            return jsaPhone2Business;
         }
 
-        // PUT: api/JsaResultCategories/5
+        // PUT: api/JsaPhone2Business/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaResultCategory(int id, JsaResultCategory jsaResultCategory)
+        public async Task<IActionResult> PutJsaPhone2Business(int id, JsaPhone2Business jsaPhone2Business)
         {
-            if (id != jsaResultCategory.RcId)
+            if (id != jsaPhone2Business.Ph2bId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaResultCategory).State = EntityState.Modified;
+            _context.Entry(jsaPhone2Business).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaResultCategoryExists(id))
+                if (!JsaPhone2BusinessExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaResultCategories
+        // POST: api/JsaPhone2Business
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaResultCategory>> PostJsaResultCategory(JsaResultCategory jsaResultCategory)
+        public async Task<ActionResult<JsaPhone2Business>> PostJsaPhone2Business(JsaPhone2Business jsaPhone2Business)
         {
-            _context.JsaResultCategories.Add(jsaResultCategory);
+            _context.JsaPhone2Businesses.Add(jsaPhone2Business);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaResultCategoryExists(jsaResultCategory.RcId))
+                if (JsaPhone2BusinessExists(jsaPhone2Business.Ph2bId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaResultCategory", new { id = jsaResultCategory.RcId }, jsaResultCategory);
+            return CreatedAtAction("GetJsaPhone2Business", new { id = jsaPhone2Business.Ph2bId }, jsaPhone2Business);
         }
 
-        // DELETE: api/JsaResultCategories/5
+        // DELETE: api/JsaPhone2Business/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaResultCategory(int id)
+        public async Task<IActionResult> DeleteJsaPhone2Business(int id)
         {
-            var jsaResultCategory = await _context.JsaResultCategories.FindAsync(id);
-            if (jsaResultCategory == null)
+            var jsaPhone2Business = await _context.JsaPhone2Businesses.FindAsync(id);
+            if (jsaPhone2Business == null)
             {
                 return NotFound();
             }
 
-            _context.JsaResultCategories.Remove(jsaResultCategory);
+            _context.JsaPhone2Businesses.Remove(jsaPhone2Business);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaResultCategoryExists(int id)
+        private bool JsaPhone2BusinessExists(int id)
         {
-            return _context.JsaResultCategories.Any(e => e.RcId == id);
+            return _context.JsaPhone2Businesses.Any(e => e.Ph2bId == id);
         }
     }
 }

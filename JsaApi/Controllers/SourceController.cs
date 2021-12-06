@@ -11,47 +11,47 @@ namespace JsaApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaJobDescriptionController : ControllerBase
+    public class SourceController : ControllerBase
     {
         private readonly JobSearchAssistantContext _context;
 
-        public JsaJobDescriptionController(JobSearchAssistantContext context)
+        public SourceController(JobSearchAssistantContext context)
         {
             _context = context;
         }
 
-        // GET: api/JsaJobDescriptions
+        // GET: api/JsaSources
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<JsaJobDescription>>> GetJsaJobDescriptions()
+        public async Task<ActionResult<IEnumerable<JsaSource>>> GetJsaSources()
         {
-            return await _context.JsaJobDescriptions.ToListAsync();
+            return await _context.JsaSources.ToListAsync();
         }
 
-        // GET: api/JsaJobDescriptions/5
+        // GET: api/JsaSources/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<JsaJobDescription>> GetJsaJobDescription(int id)
+        public async Task<ActionResult<JsaSource>> GetJsaSource(int id)
         {
-            var jsaJobDescription = await _context.JsaJobDescriptions.FindAsync(id);
+            var jsaSource = await _context.JsaSources.FindAsync(id);
 
-            if (jsaJobDescription == null)
+            if (jsaSource == null)
             {
                 return NotFound();
             }
 
-            return jsaJobDescription;
+            return jsaSource;
         }
 
-        // PUT: api/JsaJobDescriptions/5
+        // PUT: api/JsaSources/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJsaJobDescription(int id, JsaJobDescription jsaJobDescription)
+        public async Task<IActionResult> PutJsaSource(int id, JsaSource jsaSource)
         {
-            if (id != jsaJobDescription.JdId)
+            if (id != jsaSource.SId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(jsaJobDescription).State = EntityState.Modified;
+            _context.Entry(jsaSource).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace JsaApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JsaJobDescriptionExists(id))
+                if (!JsaSourceExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace JsaApi.Controllers
             return NoContent();
         }
 
-        // POST: api/JsaJobDescriptions
+        // POST: api/JsaSources
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<JsaJobDescription>> PostJsaJobDescription(JsaJobDescription jsaJobDescription)
+        public async Task<ActionResult<JsaSource>> PostJsaSource(JsaSource jsaSource)
         {
-            _context.JsaJobDescriptions.Add(jsaJobDescription);
+            _context.JsaSources.Add(jsaSource);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (JsaJobDescriptionExists(jsaJobDescription.JdId))
+                if (JsaSourceExists(jsaSource.SId))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace JsaApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetJsaJobDescription", new { id = jsaJobDescription.JdId }, jsaJobDescription);
+            return CreatedAtAction("GetJsaSource", new { id = jsaSource.SId }, jsaSource);
         }
 
-        // DELETE: api/JsaJobDescriptions/5
+        // DELETE: api/JsaSources/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteJsaJobDescription(int id)
+        public async Task<IActionResult> DeleteJsaSource(int id)
         {
-            var jsaJobDescription = await _context.JsaJobDescriptions.FindAsync(id);
-            if (jsaJobDescription == null)
+            var jsaSource = await _context.JsaSources.FindAsync(id);
+            if (jsaSource == null)
             {
                 return NotFound();
             }
 
-            _context.JsaJobDescriptions.Remove(jsaJobDescription);
+            _context.JsaSources.Remove(jsaSource);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool JsaJobDescriptionExists(int id)
+        private bool JsaSourceExists(int id)
         {
-            return _context.JsaJobDescriptions.Any(e => e.JdId == id);
+            return _context.JsaSources.Any(e => e.SId == id);
         }
     }
 }
