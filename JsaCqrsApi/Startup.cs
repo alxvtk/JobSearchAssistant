@@ -24,34 +24,39 @@ namespace JsaCqrsApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>
+            services.AddDbContext<ApplicationContext>
             (options =>
                 options.UseSqlServer
                 (
                     Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)
+                    b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)
                 )
             );
 
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
+            services.AddScoped<IApplicationContext>(provider => provider.GetService<ApplicationContext>());
 
-            #region Swagger
-            services.AddSwaggerGen
-            (c =>
-                {
-                    c.IncludeXmlComments(string.Format(@"{0}\EFCore.CodeFirst.WebApi.xml", System.AppDomain.CurrentDomain.BaseDirectory));
-                    c.SwaggerDoc
-                    ("v1", new OpenApiInfo
-                        {
-                            Version = "v1",
-                            Title = "EFCore.CodeFirst.WebApi",
-                        }
-                    );
-                }
-            );
-            #endregion
             services.AddControllers();
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            #region Swagger
+            string xmlTitleName = "JsaCqrsApi";
+            services.AddSwaggerGen
+            (c =>
+            {
+                //c.IncludeXmlComments(string.Format(@"{0}\Jsa.xml", System.AppDomain.CurrentDomain.BaseDirectory));
+                c.IncludeXmlComments(string.Format(@"{0}\{1}", System.AppDomain.CurrentDomain.BaseDirectory, xmlTitleName + ".xml"));
+                c.SwaggerDoc
+                ("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = xmlTitleName,
+                        //Title = "EFCore.CodeFirst.WebApi",
+                    }
+                );
+            }
+            );
+            #endregion
+
         }
 
 
@@ -80,13 +85,16 @@ namespace JsaCqrsApi
             */
 
             #region Swagger
+            string xmlTitleName = "JsaCqrsApi";
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EFCore.CodeFirst.WebApi");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "jsaCqrsApi_01");
+                //c.SwaggerEndpoint("/swagger/v1/swagger.json", "EFCore.CodeFirst.WebApi");
             });
             #endregion
 

@@ -7,9 +7,9 @@ using JsaCqrsApi.Models;
 
 namespace JsaCqrsApi.Context
 {
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationContext : DbContext, IApplicationContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
 
@@ -42,7 +42,6 @@ namespace JsaCqrsApi.Context
         public DbSet<JsaPerson2Business> JsaPerson2Business { get; set; }
         public DbSet<JsaLocation2Person> JsaLocation2Person { get; set; }
         public DbSet<JsaLocation2Business> JsaLocation2Business { get; set; }
-
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         public async Task<int> SaveChanges()
 #pragma warning restore CS0114 // Member hides inherited member; missing override keyword

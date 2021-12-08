@@ -12,6 +12,8 @@ namespace JsaCqrsApi.Models
             JsaSources = new HashSet<JsaSource>();
         }
 
+        //public int Id { get; set; }
+
         public string StType { get; set; }
         public string StTypeName { get; set; }
 

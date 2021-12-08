@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JsaCqrsApi.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20211203223903_jsaCqrsApi_v1_2")]
     partial class jsaCqrsApi_v1_2
     {

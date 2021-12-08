@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace JsaCqrsApi.Context
 {
-    public interface IApplicationDbContext
+    public interface IApplicationContext
     {
         DbSet<JsaBusiness> JsaBusiness { get; set; }
         DbSet<JsaCountry> JsaCountry { get; set; }
