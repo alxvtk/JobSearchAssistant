@@ -10,7 +10,6 @@ namespace JsaCqrsApi.Application.Features.ProductFeatures.Queries
 {
     public class GetAllProductsQuery : IRequest<IEnumerable<Product>>
     {
-
         public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery,IEnumerable<Product>>
         {
             private readonly IApplicationContext _context;

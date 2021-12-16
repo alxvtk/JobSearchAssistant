@@ -15,7 +15,7 @@ namespace JsaApi.Models
         public int StId { get; set; }
         public string StType { get; set; }
         public string StTypeName { get; set; }
-
+    
         public virtual ICollection<JsaSource> JsaSources { get; set; }
     }
 }

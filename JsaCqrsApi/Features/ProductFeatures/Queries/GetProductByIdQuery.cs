@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JsaCqrsApi.Infrastructure.Features.ProductFeatures.Queries
+namespace CQRS.WebApi.Infrastructure.Features.ProductFeatures.Queries
 {
     public class GetProductByIdQuery : IRequest<Product>
     {
@@ -19,7 +19,7 @@ namespace JsaCqrsApi.Infrastructure.Features.ProductFeatures.Queries
             }
             public async Task<Product> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
             {
-                var product =  _context.Products.Where(a => a.Id == query.Id).FirstOrDefault();
+                var product = _context.Products.Where(a => a.Id == query.Id).FirstOrDefault();
                 if (product == null) return null;
                 return product;
             }

@@ -8,6 +8,8 @@ namespace JsaCqrsApi.Infrastructure.Context
     {
         DbSet<Product> Products { get; set; }
 
+        DbSet<JsaSourceType> JsaSourceTypes { get; set; }
+
         Task<int> SaveChangesAsync();
     }
 }
