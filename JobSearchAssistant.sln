@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Knowledge", "Knowledge", "{
 		Knowledge\MediatR.txt = Knowledge\MediatR.txt
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jsa_CqrsApi", "JsaCqrsApi\Jsa_CqrsApi.csproj", "{F6A62EA1-B28F-403F-9ACF-27348FA086ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsaCqrsApi", "JsaCqrsApi\JsaCqrsApi.csproj", "{F6A62EA1-B28F-403F-9ACF-27348FA086ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
