@@ -26,6 +26,7 @@ namespace JsaCqrsApi.Application.Features.JsaSourceTypeFeatures.Commands
             public async Task<int> Handle(CreateJsaSourceTypeCommand command, CancellationToken cancellationToken)
             {
                 var jsaSourseType = new JsaSourceType();
+                jsaSourseType.StId = command.StId;
                 jsaSourseType.StType = command.StType;
                 jsaSourseType.StTypeName = command.StTypeName;
 
