@@ -12,9 +12,9 @@ namespace JsaCqrsApi.Domain.Models
 //            Sources = new HashSet<Source>();
 //        }
 
-        public int StId { get; set; }
-        public string StType { get; set; }
-        public string StTypeName { get; set; }
+        public int Id { get; set; }
+        public string Type { get; set; }
+        public string TypeName { get; set; }
 
 //        public virtual ICollection<Source> Sources { get; set; }
     }

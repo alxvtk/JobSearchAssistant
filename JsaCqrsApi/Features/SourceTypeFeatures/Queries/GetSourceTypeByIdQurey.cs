@@ -20,7 +20,7 @@ namespace JsaCqrsApi.Infrastructure.Features.SourceTypeFeatures.Queries
 
             public async Task<SourceType> Handle(GetSourceTypeByIdQurey query, CancellationToken cancellationToken)
             {
-                var sourceType = _context.SourceTypes.Where(a => a.StId == query.Id).FirstOrDefault();
+                var sourceType = _context.SourceTypes.Where(a => a.Id == query.Id).FirstOrDefault();
                 if (sourceType == null) return null;
                 return sourceType;
             }

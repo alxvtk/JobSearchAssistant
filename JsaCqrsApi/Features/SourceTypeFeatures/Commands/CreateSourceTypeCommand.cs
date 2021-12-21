@@ -26,13 +26,13 @@ namespace JsaCqrsApi.Application.Features.SourceTypeFeatures.Commands
             public async Task<int> Handle(CreateSourceTypeCommand command, CancellationToken cancellationToken)
             {
                 var jsaSourseType = new SourceType();
-                jsaSourseType.StId = command.StId;
-                jsaSourseType.StType = command.StType;
-                jsaSourseType.StTypeName = command.StTypeName;
+                jsaSourseType.Id = command.StId;
+                jsaSourseType.Type = command.StType;
+                jsaSourseType.TypeName = command.StTypeName;
 
                 _context.SourceTypes.Add(jsaSourseType);
                 await _context.SaveChangesAsync();
-                return jsaSourseType.StId;
+                return jsaSourseType.Id;
             }
         }
 

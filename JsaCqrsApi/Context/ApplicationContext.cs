@@ -34,26 +34,26 @@ namespace JsaCqrsApi.Infrastructure.Context
 
             modelBuilder.Entity<SourceType>(entity =>
             {
-                entity.HasKey(e => e.StId)
+                entity.HasKey(e => e.Id)
                     .HasName("PK__st_Id");
 
                 entity.ToTable("SourceType");
 
-                entity.Property(e => e.StId)
+                entity.Property(e => e.Id)
                     .ValueGeneratedNever()
-                    .HasColumnName("st_ID");
+                    .HasColumnName("ID");
 
-                entity.Property(e => e.StType)
+                entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false)
-                    .HasColumnName("st_Type");
+                    .HasColumnName("Type");
 
-                entity.Property(e => e.StTypeName)
+                entity.Property(e => e.TypeName)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false)
-                    .HasColumnName("st_TypeName");
+                    .HasColumnName("TypeName");
             });
 
         }
