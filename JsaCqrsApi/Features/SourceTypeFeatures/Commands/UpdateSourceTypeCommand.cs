@@ -8,34 +8,34 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JsaCqrsApi.Features.JsaSourceTypeFeatures.Commands
+namespace JsaCqrsApi.Features.SourceTypeFeatures.Commands
 {
-    public class UpdateJsaSourceTypeCommand : IRequest<int>
+    public class UpdateSourceTypeCommand : IRequest<int>
     {
         public int Id { get; set; }
         public string StType { get; set; }
         public string StTypeName { get; set; }
 
-        public class UpdateJsaSourceTypeCommandHandler : IRequestHandler<UpdateJsaSourceTypeCommand, int>
+        public class UpdateSourceTypeCommandHandler : IRequestHandler<UpdateSourceTypeCommand, int>
         {
             private readonly IApplicationContext _context;
-            public UpdateJsaSourceTypeCommandHandler(IApplicationContext context)
+            public UpdateSourceTypeCommandHandler(IApplicationContext context)
             {
                 _context = context;
             }
-            public async Task<int> Handle(UpdateJsaSourceTypeCommand command, CancellationToken cancellationToken)
+            public async Task<int> Handle(UpdateSourceTypeCommand command, CancellationToken cancellationToken)
             {
-                var jsaSourceType = _context.JsaSourceTypes.Where(a => a.StId == command.Id).FirstOrDefault();
-                if (jsaSourceType == null)
+                var SourceType = _context.SourceTypes.Where(a => a.StId == command.Id).FirstOrDefault();
+                if (SourceType == null)
                 {
                     return default;
                 }
                 else
                 {
-                    jsaSourceType.StType = command.StType;
-                    jsaSourceType.StTypeName = command.StTypeName;
+                    SourceType.StType = command.StType;
+                    SourceType.StTypeName = command.StTypeName;
                     await _context.SaveChangesAsync();
-                    return jsaSourceType.StId;
+                    return SourceType.StId;
                 }
             }
 

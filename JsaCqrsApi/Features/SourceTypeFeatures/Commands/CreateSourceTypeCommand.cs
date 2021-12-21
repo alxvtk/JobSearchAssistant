@@ -7,30 +7,30 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JsaCqrsApi.Application.Features.JsaSourceTypeFeatures.Commands
+namespace JsaCqrsApi.Application.Features.SourceTypeFeatures.Commands
 {
-    public class CreateJsaSourceTypeCommand : IRequest<int>
+    public class CreateSourceTypeCommand : IRequest<int>
     {
         public int StId { get; set; }
         public string StType { get; set; }
         public string StTypeName { get; set; }
 
-        public class CreateJsaSourceTypeCommandHandler : IRequestHandler<CreateJsaSourceTypeCommand, int>
+        public class CreateSourceTypeCommandHandler : IRequestHandler<CreateSourceTypeCommand, int>
         {
             private readonly IApplicationContext _context;
-            public CreateJsaSourceTypeCommandHandler(IApplicationContext context)
+            public CreateSourceTypeCommandHandler(IApplicationContext context)
             {
                 _context = context;
             }
 
-            public async Task<int> Handle(CreateJsaSourceTypeCommand command, CancellationToken cancellationToken)
+            public async Task<int> Handle(CreateSourceTypeCommand command, CancellationToken cancellationToken)
             {
-                var jsaSourseType = new JsaSourceType();
+                var jsaSourseType = new SourceType();
                 jsaSourseType.StId = command.StId;
                 jsaSourseType.StType = command.StType;
                 jsaSourseType.StTypeName = command.StTypeName;
 
-                _context.JsaSourceTypes.Add(jsaSourseType);
+                _context.SourceTypes.Add(jsaSourseType);
                 await _context.SaveChangesAsync();
                 return jsaSourseType.StId;
             }

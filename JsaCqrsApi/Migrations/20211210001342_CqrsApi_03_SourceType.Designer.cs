@@ -43,7 +43,7 @@ namespace JsaCqrsApi.Migrations
                     b.HasKey("StId")
                         .HasName("PK__st_Id");
 
-                    b.ToTable("jsa_SourceType");
+                    b.ToTable("SourceType");
                 });
 
             modelBuilder.Entity("JsaCqrsApi.Domain.Models.Product", b =>
