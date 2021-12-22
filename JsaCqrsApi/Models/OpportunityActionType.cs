@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaOpportunityActionType
+    public partial class OpportunityActionType
     {
-        public JsaOpportunityActionType()
+        public OpportunityActionType()
         {
-            JsaOpportunityActions = new HashSet<JsaOpportunityAction>();
+            OpportunityActions = new HashSet<OpportunityAction>();
         }
 
-        public int OatId { get; set; }
-        public int OatSequenceNumber { get; set; }
-        public string OatTitle { get; set; }
-        public string OatDescription { get; set; }
-        public string OatNote { get; set; }
+        public int Id { get; set; }
+        public int SequenceNumber { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Note { get; set; }
 
-        public virtual ICollection<JsaOpportunityAction> JsaOpportunityActions { get; set; }
+        public virtual ICollection<OpportunityAction> OpportunityActions { get; set; }
     }
 }

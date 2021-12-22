@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaDocFormat
+    public partial class DocFormat
     {
-        public JsaDocFormat()
+        public DocFormat()
         {
-            JsaDocuments = new HashSet<JsaDocument>();
+            DocumentList = new HashSet<Document>();
         }
 
-        public int DfId { get; set; }
-        public string DfType { get; set; }
+        public int Id { get; set; }
+        public string Type { get; set; }
 
-        public virtual ICollection<JsaDocument> JsaDocuments { get; set; }
+        public virtual ICollection<Document> DocumentList { get; set; }
     }
 }

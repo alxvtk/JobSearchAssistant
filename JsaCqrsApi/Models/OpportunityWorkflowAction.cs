@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaOpportunityWorkflowAction
+    public partial class OpportunityWorkflowAction
     {
-        public int OwaId { get; set; }
-        public int OwaOpportunityWorkflowId { get; set; }
-        public int OwaOpportunityActionId { get; set; }
+        public int Id { get; set; }
+        public int OpportunityWorkflowId { get; set; }
+        public int OpportunityActionId { get; set; }
 
-        public virtual JsaOpportunityAction OwaOpportunityAction { get; set; }
-        public virtual JsaOpportunityWorkflow OwaOpportunityWorkflow { get; set; }
+        public virtual OpportunityAction OpportunityAction { get; set; }
+        public virtual OpportunityWorkflow OpportunityWorkflow { get; set; }
     }
 }

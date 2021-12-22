@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaOpportunityDocument
+    public partial class OpportunityDocument
     {
-        public JsaOpportunityDocument()
+        public OpportunityDocument()
         {
-            JsaOpportunityActions = new HashSet<JsaOpportunityAction>();
+            OpportunityActions = new HashSet<OpportunityAction>();
         }
 
-        public int OdId { get; set; }
-        public int? OdOpportunityId { get; set; }
-        public int? OdDocument { get; set; }
+        public int Id { get; set; }
+        public int? OpportunityId { get; set; }
+        public int? Document { get; set; }
 
-        public virtual JsaOpportunity OdOpportunity { get; set; }
-        public virtual ICollection<JsaOpportunityAction> JsaOpportunityActions { get; set; }
+        public virtual Opportunity OdOpportunity { get; set; }
+        public virtual ICollection<OpportunityAction> OpportunityActions { get; set; }
     }
 }

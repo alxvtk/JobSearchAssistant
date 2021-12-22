@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace JsaCqrsApi.Domain.Models
 {
+    // Sample class
     public class Product
     {
         public int Id { get; set; }

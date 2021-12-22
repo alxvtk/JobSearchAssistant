@@ -3,23 +3,23 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaPhone
+    public partial class Phone
     {
-        public JsaPhone()
+        public Phone()
         {
-            JsaPhone2Businesses = new HashSet<JsaPhone2Business>();
-            JsaPhone2People = new HashSet<JsaPhone2Person>();
+            Phone2Businesses = new HashSet<Phone2Business>();
+            Phone2People = new HashSet<Phone2Person>();
         }
 
-        public int PhId { get; set; }
-        public string PhNumber { get; set; }
-        public string PhName { get; set; }
-        public string PhFax { get; set; }
-        public string PhComment { get; set; }
+        public int Id { get; set; }
+        public string Number { get; set; }
+        public string Name { get; set; }
+        public string Fax { get; set; }
+        public string Comment { get; set; }
 
-        public virtual ICollection<JsaPhone2Business> JsaPhone2Businesses { get; set; }
-        public virtual ICollection<JsaPhone2Person> JsaPhone2People { get; set; }
+        public virtual ICollection<Phone2Business> Phone2Businesses { get; set; }
+        public virtual ICollection<Phone2Person> Phone2People { get; set; }
     }
 }

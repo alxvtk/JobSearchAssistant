@@ -3,25 +3,25 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaEmail
+    public partial class Email
     {
-        public JsaEmail()
+        public Email()
         {
-            JsaDocuments = new HashSet<JsaDocument>();
-            JsaEmail2Businesses = new HashSet<JsaEmail2Business>();
-            JsaEmail2People = new HashSet<JsaEmail2Person>();
-            JsaSources = new HashSet<JsaSource>();
+            DocumentList = new HashSet<Document>();
+            Email2BusinessList = new HashSet<Email2Business>();
+            Email2PeopleList = new HashSet<Email2Person>();
+            SourceList = new HashSet<Source>();
         }
 
-        public int EId { get; set; }
-        public string EAddress { get; set; }
-        public string EComment { get; set; }
+        public int Id { get; set; }
+        public string Address { get; set; }
+        public string Comment { get; set; }
 
-        public virtual ICollection<JsaDocument> JsaDocuments { get; set; }
-        public virtual ICollection<JsaEmail2Business> JsaEmail2Businesses { get; set; }
-        public virtual ICollection<JsaEmail2Person> JsaEmail2People { get; set; }
-        public virtual ICollection<JsaSource> JsaSources { get; set; }
+        public virtual ICollection<Document> DocumentList { get; set; }
+        public virtual ICollection<Email2Business> Email2BusinessList { get; set; }
+        public virtual ICollection<Email2Person> Email2PeopleList { get; set; }
+        public virtual ICollection<Source> SourceList { get; set; }
     }
 }

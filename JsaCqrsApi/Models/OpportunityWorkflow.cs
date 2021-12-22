@@ -3,23 +3,23 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaOpportunityWorkflow
+    public partial class OpportunityWorkflow
     {
-        public JsaOpportunityWorkflow()
+        public OpportunityWorkflow()
         {
-            JsaOpportunityWorkflowActions = new HashSet<JsaOpportunityWorkflowAction>();
+            OpportunityWorkflowActions = new HashSet<OpportunityWorkflowAction>();
         }
 
-        public int OwId { get; set; }
-        public int OwOpportunityId { get; set; }
-        public int? OwWorkFlowResultStatusId { get; set; }
-        public DateTime? OwDateTime { get; set; }
-        public string OwDescription { get; set; }
+        public int Id { get; set; }
+        public int OpportunityId { get; set; }
+        public int? WorkFlowResultStatusId { get; set; }
+        public DateTime? CreatedDateTime { get; set; }
+        public string Description { get; set; }
 
-        public virtual JsaOpportunity OwOpportunity { get; set; }
-        public virtual JsaResultStatus OwWorkFlowResultStatus { get; set; }
-        public virtual ICollection<JsaOpportunityWorkflowAction> JsaOpportunityWorkflowActions { get; set; }
+        public virtual Opportunity Opportunity { get; set; }
+        public virtual ResultStatus WorkFlowResultStatus { get; set; }
+        public virtual ICollection<OpportunityWorkflowAction> OpportunityWorkflowActions { get; set; }
     }
 }

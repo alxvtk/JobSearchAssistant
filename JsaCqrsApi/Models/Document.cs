@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaDocument
+    public partial class Document
     {
-        public int DId { get; set; }
-        public int? DUrlId { get; set; }
-        public int? DEmailId { get; set; }
-        public int? DDocFormatId { get; set; }
-        public string DBody { get; set; }
-        public string DFullPath { get; set; }
+        public int Id { get; set; }
+        public int? UrlId { get; set; }
+        public int? EmailId { get; set; }
+        public int? DocFormatId { get; set; }
+        public string Body { get; set; }
+        public string FullPath { get; set; }
 
-        public virtual JsaDocFormat DDocFormat { get; set; }
-        public virtual JsaEmail DEmail { get; set; }
-        public virtual JsaUrl DUrl { get; set; }
+        public virtual DocFormat DocFormat { get; set; }
+        public virtual Email Email { get; set; }
+        public virtual UrlLink Url { get; set; }
     }
 }

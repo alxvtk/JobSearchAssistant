@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaUser
+    public partial class User
     {
         public int UsrId { get; set; }
         public int UsrPersonId { get; set; }
 
-        public virtual JsaPerson UsrPerson { get; set; }
+        public virtual Person UsrPerson { get; set; }
     }
 }

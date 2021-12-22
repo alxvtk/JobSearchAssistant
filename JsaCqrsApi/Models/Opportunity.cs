@@ -3,24 +3,24 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaOpportunity
+    public partial class Opportunity
     {
-        public JsaOpportunity()
+        public Opportunity()
         {
-            JsaOpportunityDocuments = new HashSet<JsaOpportunityDocument>();
-            JsaOpportunityWorkflows = new HashSet<JsaOpportunityWorkflow>();
+            OpportunityDocuments = new HashSet<OpportunityDocument>();
+            OpportunityWorkflows = new HashSet<OpportunityWorkflow>();
         }
 
-        public int OId { get; set; }
-        public int OJobDescriptionId { get; set; }
-        public int OResumeId { get; set; }
-        public string OActive { get; set; }
+        public int Id { get; set; }
+        public int JobDescriptionId { get; set; }
+        public int ResumeId { get; set; }
+        public string Active { get; set; }
 
-        public virtual JsaJobDescription OJobDescription { get; set; }
-        public virtual JsaResume OResume { get; set; }
-        public virtual ICollection<JsaOpportunityDocument> JsaOpportunityDocuments { get; set; }
-        public virtual ICollection<JsaOpportunityWorkflow> JsaOpportunityWorkflows { get; set; }
+        public virtual JobDescription JobDescription { get; set; }
+        public virtual Resume Resume { get; set; }
+        public virtual ICollection<OpportunityDocument> OpportunityDocuments { get; set; }
+        public virtual ICollection<OpportunityWorkflow> OpportunityWorkflows { get; set; }
     }
 }

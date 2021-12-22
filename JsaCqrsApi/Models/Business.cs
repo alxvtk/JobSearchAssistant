@@ -3,26 +3,26 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaBusiness
+    public partial class Business
     {
-        public JsaBusiness()
+        public Business()
         {
-            JsaEmail2Businesses = new HashSet<JsaEmail2Business>();
-            JsaLocation2Businesses = new HashSet<JsaLocation2Business>();
-            JsaPerson2Businesses = new HashSet<JsaPerson2Business>();
-            JsaPhone2Businesses = new HashSet<JsaPhone2Business>();
-            JsaUrl2Businesses = new HashSet<JsaUrl2Business>();
+            Email2BusinessList = new HashSet<Email2Business>();
+            Location2BusinessList = new HashSet<Location2Business>();
+            Person2BusinessList = new HashSet<Person2Business>();
+            Phone2BusinessList = new HashSet<Phone2Business>();
+            UrlLink2BusinessList = new HashSet<Url2Business>();
         }
 
-        public int BId { get; set; }
-        public string BName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        public virtual ICollection<JsaEmail2Business> JsaEmail2Businesses { get; set; }
-        public virtual ICollection<JsaLocation2Business> JsaLocation2Businesses { get; set; }
-        public virtual ICollection<JsaPerson2Business> JsaPerson2Businesses { get; set; }
-        public virtual ICollection<JsaPhone2Business> JsaPhone2Businesses { get; set; }
-        public virtual ICollection<JsaUrl2Business> JsaUrl2Businesses { get; set; }
+        public virtual ICollection<Email2Business> Email2BusinessList { get; set; }
+        public virtual ICollection<Location2Business> Location2BusinessList { get; set; }
+        public virtual ICollection<Person2Business> Person2BusinessList { get; set; }
+        public virtual ICollection<Phone2Business> Phone2BusinessList { get; set; }
+        public virtual ICollection<Url2Business> UrlLink2BusinessList { get; set; }
     }
 }

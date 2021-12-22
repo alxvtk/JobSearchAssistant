@@ -3,27 +3,27 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaSource
+    public partial class Source
     {
-//        public JsaSource()
-//        {
-//            JsaJobDescriptions = new HashSet<JsaJobDescription>();
-//        }
+        public Source()
+        {
+            JobDescriptions = new HashSet<JobDescription>();
+        }
 
-        public int SId { get; set; }
-        public int SSourceTypeId { get; set; }
-        public int? SPersonId { get; set; }
-        public int? SUrlId { get; set; }
-        public int? SEmailId { get; set; }
-        public string SName { get; set; }
-        public string SComment { get; set; }
+        public int Id { get; set; }
+        public int SourceTypeId { get; set; }
+        public int? PersonId { get; set; }
+        public int? UrlId { get; set; }
+        public int? EmailId { get; set; }
+        public string Name { get; set; }
+        public string Comment { get; set; }
 
-//        public virtual JsaEmail SEmail { get; set; }
-//        public virtual JsaPerson SPerson { get; set; }
-//        public virtual JsaSourceType SSourceType { get; set; }
-//        public virtual JsaUrl SUrl { get; set; }
-//        public virtual ICollection<JsaJobDescription> JsaJobDescriptions { get; set; }
+        public virtual Email Email { get; set; }
+        public virtual Person Person { get; set; }
+        public virtual SourceType SSourceType { get; set; }
+        public virtual UrlLink SUrl { get; set; }
+        public virtual ICollection<JobDescription> JobDescriptions { get; set; }
     }
 }

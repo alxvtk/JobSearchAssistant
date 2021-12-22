@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaCountry
+    public partial class Country
     {
-        public JsaCountry()
+        public Country()
         {
-            JsaLocations = new HashSet<JsaLocation>();
+            LocationList = new HashSet<Location>();
         }
 
-        public int CId { get; set; }
-        public string CCode { get; set; }
-        public string CName { get; set; }
+        public int Id { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
 
-        public virtual ICollection<JsaLocation> JsaLocations { get; set; }
+        public virtual ICollection<Location> LocationList { get; set; }
     }
 }

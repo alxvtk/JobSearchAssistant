@@ -3,33 +3,33 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaLocation
+    public partial class Location
     {
-        public JsaLocation()
+        public Location()
         {
-            JsaLocation2Businesses = new HashSet<JsaLocation2Business>();
-            JsaLocation2People = new HashSet<JsaLocation2Person>();
+            Location2Businesses = new HashSet<Location2Business>();
+            Location2People = new HashSet<Location2Person>();
         }
 
-        public int LId { get; set; }
-        public string LStreetNumber { get; set; }
-        public string LStreetNumberSuffix { get; set; }
-        public string LStreetName { get; set; }
-        public string LStreetType { get; set; }
-        public string LStreetDirection { get; set; }
-        public string LUnit { get; set; }
-        public string LMunicipality { get; set; }
-        public string LProvince { get; set; }
-        public int LCountryId { get; set; }
-        public string LPostalCode { get; set; }
-        public string LStreetLine1 { get; set; }
-        public string LStreetLine2 { get; set; }
-        public string LComments { get; set; }
+        public int Id { get; set; }
+        public string StreetNumber { get; set; }
+        public string StreetNumberSuffix { get; set; }
+        public string StreetName { get; set; }
+        public string StreetType { get; set; }
+        public string StreetDirection { get; set; }
+        public string Unit { get; set; }
+        public string Municipality { get; set; }
+        public string Province { get; set; }
+        public int CountryId { get; set; }
+        public string PostalCode { get; set; }
+        public string StreetLine1 { get; set; }
+        public string StreetLine2 { get; set; }
+        public string Comments { get; set; }
 
-        public virtual JsaCountry LCountry { get; set; }
-        public virtual ICollection<JsaLocation2Business> JsaLocation2Businesses { get; set; }
-        public virtual ICollection<JsaLocation2Person> JsaLocation2People { get; set; }
+        public virtual Country Country { get; set; }
+        public virtual ICollection<Location2Business> Location2Businesses { get; set; }
+        public virtual ICollection<Location2Person> Location2People { get; set; }
     }
 }

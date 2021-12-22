@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaResultCategory
+    public partial class ResultCategory
     {
-        public JsaResultCategory()
+        public ResultCategory()
         {
-            JsaResultStatuses = new HashSet<JsaResultStatus>();
+            ResultStatuses = new HashSet<ResultStatus>();
         }
 
-        public int RcId { get; set; }
-        public string RcName { get; set; }
-        public string RcCode { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
 
-        public virtual ICollection<JsaResultStatus> JsaResultStatuses { get; set; }
+        public virtual ICollection<ResultStatus> ResultStatuses { get; set; }
     }
 }

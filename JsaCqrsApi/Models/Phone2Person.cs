@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace JsaApi.Models
+namespace JsaCqrsApi.Domain.Models
 {
-    public partial class JsaPhone2Person
+    public partial class Phone2Person
     {
-        public int Ph2pId { get; set; }
-        public int Ph2pPhoneId { get; set; }
-        public int Ph2pPersonId { get; set; }
-        public string Ph2pActive { get; set; }
+        public int Id { get; set; }
+        public int PhoneId { get; set; }
+        public int PersonId { get; set; }
+        public string Active { get; set; }
 
-        public virtual JsaPerson Ph2pPerson { get; set; }
-        public virtual JsaPhone Ph2pPhone { get; set; }
+        public virtual Person Person { get; set; }
+        public virtual Phone Phone { get; set; }
     }
 }
