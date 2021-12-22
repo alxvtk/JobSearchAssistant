@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JsaCqrsApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211210001342_jsaCqrsApi_03_jsaSourceType")]
-    partial class jsaCqrsApi_03_jsaSourceType
+    [Migration("20211210001342_jsaCqrsApi_03_SourceType")]
+    partial class jsaCqrsApi_03_SourceType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,20 +20,20 @@ namespace JsaCqrsApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("JsaCqrsApi.Domain.Models.JsaSourceType", b =>
+            modelBuilder.Entity("JsaCqrsApi.Domain.Models.SourceType", b =>
                 {
-                    b.Property<int>("StId")
+                    b.Property<int>("Id")
                         .HasColumnName("ID")
                         .HasColumnType("int");
 
-                    b.Property<string>("StType")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnName("Type")
                         .HasColumnType("varchar(1)")
                         .HasMaxLength(1)
                         .IsUnicode(false);
 
-                    b.Property<string>("StTypeName")
+                    b.Property<string>("TypeName")
                         .IsRequired()
                         .HasColumnName("TypeName")
                         .HasColumnType("varchar(10)")

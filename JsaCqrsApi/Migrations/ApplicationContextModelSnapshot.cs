@@ -18,27 +18,27 @@ namespace JsaCqrsApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("JsaCqrsApi.Domain.Models.JsaSourceType", b =>
+            modelBuilder.Entity("JsaCqrsApi.Domain.Models.SourceType", b =>
                 {
-                    b.Property<int>("StId")
+                    b.Property<int>("Id")
                         .HasColumnName("ID")
                         .HasColumnType("int");
 
-                    b.Property<string>("StType")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnName("Type")
                         .HasColumnType("varchar(1)")
                         .HasMaxLength(1)
                         .IsUnicode(false);
 
-                    b.Property<string>("StTypeName")
+                    b.Property<string>("TypeName")
                         .IsRequired()
                         .HasColumnName("TypeName")
                         .HasColumnType("varchar(10)")
                         .HasMaxLength(10)
                         .IsUnicode(false);
 
-                    b.HasKey("StId")
+                    b.HasKey("Id")
                         .HasName("PK__st_Id");
 
                     b.ToTable("SourceType");
@@ -79,25 +79,25 @@ namespace JsaCqrsApi.Migrations
 
             modelBuilder.Entity("JsaCqrsApi.Domain.Models.SourceType", b =>
                 {
-                    b.Property<int>("StId")
-                        .HasColumnName("st_ID")
+                    b.Property<int>("Id")
+                        .HasColumnName("ID")
                         .HasColumnType("int");
 
-                    b.Property<string>("StType")
+                    b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnName("st_Type")
+                        .HasColumnName("Type")
                         .HasColumnType("varchar(1)")
                         .HasMaxLength(1)
                         .IsUnicode(false);
 
-                    b.Property<string>("StTypeName")
+                    b.Property<string>("TypeName")
                         .IsRequired()
-                        .HasColumnName("st_TypeName")
+                        .HasColumnName("TypeName")
                         .HasColumnType("varchar(10)")
                         .HasMaxLength(10)
                         .IsUnicode(false);
 
-                    b.HasKey("StId")
+                    b.HasKey("Id")
                         .HasName("PK__st_Id");
 
                     b.ToTable("SourceType");

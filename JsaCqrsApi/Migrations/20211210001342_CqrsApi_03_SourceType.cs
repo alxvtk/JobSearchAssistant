@@ -2,7 +2,7 @@
 
 namespace JsaCqrsApi.Migrations
 {
-    public partial class jsaCqrsApi_03_jsaSourceType : Migration
+    public partial class jsaCqrsApi_03_SourceType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
