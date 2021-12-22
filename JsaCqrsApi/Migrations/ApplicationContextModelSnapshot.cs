@@ -21,19 +21,19 @@ namespace JsaCqrsApi.Migrations
             modelBuilder.Entity("JsaCqrsApi.Domain.Models.JsaSourceType", b =>
                 {
                     b.Property<int>("StId")
-                        .HasColumnName("st_ID")
+                        .HasColumnName("ID")
                         .HasColumnType("int");
 
                     b.Property<string>("StType")
                         .IsRequired()
-                        .HasColumnName("st_Type")
+                        .HasColumnName("Type")
                         .HasColumnType("varchar(1)")
                         .HasMaxLength(1)
                         .IsUnicode(false);
 
                     b.Property<string>("StTypeName")
                         .IsRequired()
-                        .HasColumnName("st_TypeName")
+                        .HasColumnName("TypeName")
                         .HasColumnType("varchar(10)")
                         .HasMaxLength(10)
                         .IsUnicode(false);
@@ -41,7 +41,7 @@ namespace JsaCqrsApi.Migrations
                     b.HasKey("StId")
                         .HasName("PK__st_Id");
 
-                    b.ToTable("jsa_SourceType");
+                    b.ToTable("SourceType");
                 });
 
             modelBuilder.Entity("JsaCqrsApi.Domain.Models.Product", b =>

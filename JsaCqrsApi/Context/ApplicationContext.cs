@@ -37,23 +37,23 @@ namespace JsaCqrsApi.Infrastructure.Context
                 entity.HasKey(e => e.StId)
                     .HasName("PK__st_Id");
 
-                entity.ToTable("jsa_SourceType");
+                entity.ToTable("SourceType");
 
                 entity.Property(e => e.StId)
                     .ValueGeneratedNever()
-                    .HasColumnName("st_ID");
+                    .HasColumnName("ID");
 
                 entity.Property(e => e.StType)
                     .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false)
-                    .HasColumnName("st_Type");
+                    .HasColumnName("Type");
 
                 entity.Property(e => e.StTypeName)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false)
-                    .HasColumnName("st_TypeName");
+                    .HasColumnName("TypeName");
             });
 
         }
