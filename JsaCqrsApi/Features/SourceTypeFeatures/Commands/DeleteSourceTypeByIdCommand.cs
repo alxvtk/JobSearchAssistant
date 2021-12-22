@@ -13,8 +13,8 @@ namespace JsaCqrsApi.Features.SourceTypeFeatures.Commands
     public class DeleteSourceTypeByIdCommand : IRequest<int>
     {
         public  int Id { get; set; }
-        public string StType { get; set; }
-        public string StTypeName { get; set; }
+        public string TypeValue { get; set; }
+        public string TypeName { get; set; }
 
         public class DeleteSourceTypeByIdCommandHandler : IRequestHandler<DeleteSourceTypeByIdCommand, int>
         {

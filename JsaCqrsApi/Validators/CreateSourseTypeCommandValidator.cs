@@ -11,8 +11,8 @@ namespace JsaCqrsApi.Validators
     {
         public CreateSourseTypeCommandValidator()
         {
-            RuleFor(c => c.StType).NotNull().NotEmpty();
-            RuleFor(c => c.StTypeName).NotNull().NotEmpty();
+            RuleFor(c => c.TypeValue).NotNull().NotEmpty();
+            RuleFor(c => c.TypeName).NotNull().NotEmpty();
         }
     }
 }

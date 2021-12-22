@@ -11,9 +11,9 @@ namespace JsaCqrsApi.Application.Features.SourceTypeFeatures.Commands
 {
     public class CreateSourceTypeCommand : IRequest<int>
     {
-        public int StId { get; set; }
-        public string StType { get; set; }
-        public string StTypeName { get; set; }
+        public int Id { get; set; }
+        public string TypeValue { get; set; }
+        public string TypeName { get; set; }
 
         public class CreateSourceTypeCommandHandler : IRequestHandler<CreateSourceTypeCommand, int>
         {
@@ -25,14 +25,14 @@ namespace JsaCqrsApi.Application.Features.SourceTypeFeatures.Commands
 
             public async Task<int> Handle(CreateSourceTypeCommand command, CancellationToken cancellationToken)
             {
-                var jsaSourseType = new SourceType();
-                jsaSourseType.Id = command.StId;
-                jsaSourseType.Type = command.StType;
-                jsaSourseType.TypeName = command.StTypeName;
+                var sourseType = new SourceType();
+                sourseType.Id = command.Id;
+                sourseType.Type = command.TypeValue;
+                sourseType.TypeName = command.TypeName;
 
-                _context.SourceTypes.Add(jsaSourseType);
+                _context.SourceTypes.Add(sourseType);
                 await _context.SaveChangesAsync();
-                return jsaSourseType.Id;
+                return sourseType.Id;
             }
         }
 

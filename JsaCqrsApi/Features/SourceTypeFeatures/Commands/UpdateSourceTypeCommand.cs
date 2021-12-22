@@ -13,8 +13,8 @@ namespace JsaCqrsApi.Features.SourceTypeFeatures.Commands
     public class UpdateSourceTypeCommand : IRequest<int>
     {
         public int Id { get; set; }
-        public string StType { get; set; }
-        public string StTypeName { get; set; }
+        public string TypeValue { get; set; }
+        public string TypeName { get; set; }
 
         public class UpdateSourceTypeCommandHandler : IRequestHandler<UpdateSourceTypeCommand, int>
         {
@@ -32,8 +32,8 @@ namespace JsaCqrsApi.Features.SourceTypeFeatures.Commands
                 }
                 else
                 {
-                    SourceType.Type = command.StType;
-                    SourceType.TypeName = command.StTypeName;
+                    SourceType.Type = command.TypeValue;
+                    SourceType.TypeName = command.TypeName;
                     await _context.SaveChangesAsync();
                     return SourceType.Id;
                 }
