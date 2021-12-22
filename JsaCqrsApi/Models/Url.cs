@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace JsaApi.Models
 {
-    public partial class Url
+    public partial class JsaUrl
     {
 //        public JsaUrl()
 //        {
