@@ -3,46 +3,22 @@ using JsaCqrsApi.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JsaCqrsApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211221021906_jsaCqrs_03")]
+    partial class jsaCqrs_03
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("JsaCqrsApi.Domain.Models.JsaSourceType", b =>
-                {
-                    b.Property<int>("StId")
-                        .HasColumnName("ID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StType")
-                        .IsRequired()
-                        .HasColumnName("Type")
-                        .HasColumnType("varchar(1)")
-                        .HasMaxLength(1)
-                        .IsUnicode(false);
-
-                    b.Property<string>("StTypeName")
-                        .IsRequired()
-                        .HasColumnName("TypeName")
-                        .HasColumnType("varchar(10)")
-                        .HasMaxLength(10)
-                        .IsUnicode(false);
-
-                    b.HasKey("StId")
-                        .HasName("PK__st_Id");
-
-                    b.ToTable("SourceType");
-                });
 
             modelBuilder.Entity("JsaCqrsApi.Domain.Models.Product", b =>
                 {

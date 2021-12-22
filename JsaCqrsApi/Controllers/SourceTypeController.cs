@@ -1,7 +1,7 @@
-﻿using JsaCqrsApi.Application.Features.JsaSourceTypeFeatures.Commands;
-using JsaCqrsApi.Application.Features.JsaSourceTypeFeatures.Queries;
-using JsaCqrsApi.Features.JsaSourceTypeFeatures.Commands;
-using JsaCqrsApi.Infrastructure.Features.JsaSourceTypeFeatures.Queries;
+﻿using JsaCqrsApi.Application.Features.SourceTypeFeatures.Commands;
+using JsaCqrsApi.Application.Features.SourceTypeFeatures.Queries;
+using JsaCqrsApi.Features.SourceTypeFeatures.Commands;
+using JsaCqrsApi.Infrastructure.Features.SourceTypeFeatures.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +15,7 @@ namespace JsaCqrsApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JsaSourceTypeController : ControllerBase
+    public class SourceTypeController : ControllerBase
     {
         private IMediator _mediator;
         protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
@@ -26,7 +26,7 @@ namespace JsaCqrsApi.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Create(CreateJsaSourceTypeCommand command)
+        public async Task<IActionResult> Create(CreateSourceTypeCommand command)
         {
             return Ok(await Mediator.Send(command));
         }
@@ -38,7 +38,7 @@ namespace JsaCqrsApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await Mediator.Send(new GetAllJsaSourceTypesQurey()));
+            return Ok(await Mediator.Send(new GetAllSourceTypesQurey()));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace JsaCqrsApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await Mediator.Send(new GetJsaSourceTypeByIdQurey { Id = id }));
+            return Ok(await Mediator.Send(new GetSourceTypeByIdQurey { Id = id }));
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace JsaCqrsApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult>Delete(int id)
         {
-            return Ok(await Mediator.Send(new DeleteJsaSourceTypeByIdCommand { Id = id }));
+            return Ok(await Mediator.Send(new DeleteSourceTypeByIdCommand { Id = id }));
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace JsaCqrsApi.Controllers
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, UpdateJsaSourceTypeCommand command)
+        public async Task<IActionResult> Update(int id, UpdateSourceTypeCommand command)
         {
             if (id != command.Id)
             {

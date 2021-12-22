@@ -16,7 +16,7 @@ namespace JsaCqrsApi.Infrastructure.Context
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<JsaSourceType> JsaSourceTypes { get; set; }
+        public DbSet<SourceType> SourceTypes { get; set; }
 
         public async Task<int> SaveChangesAsync()
         {
@@ -32,24 +32,24 @@ namespace JsaCqrsApi.Infrastructure.Context
                 .Property(p => p.Rate)
                 .HasColumnType("decimal(18,4)");
 
-            modelBuilder.Entity<JsaSourceType>(entity =>
+            modelBuilder.Entity<SourceType>(entity =>
             {
-                entity.HasKey(e => e.StId)
+                entity.HasKey(e => e.Id)
                     .HasName("PK__st_Id");
 
                 entity.ToTable("SourceType");
 
-                entity.Property(e => e.StId)
+                entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.StType)
+                entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("Type");
 
-                entity.Property(e => e.StTypeName)
+                entity.Property(e => e.TypeName)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false)

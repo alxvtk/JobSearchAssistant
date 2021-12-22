@@ -6,25 +6,25 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace JsaCqrsApi.Application.Features.JsaSourceTypeFeatures.Queries
+namespace JsaCqrsApi.Application.Features.SourceTypeFeatures.Queries
 {
-    public class GetAllJsaSourceTypesQurey : IRequest<IEnumerable<JsaSourceType>>
+    public class GetAllSourceTypesQurey : IRequest<IEnumerable<SourceType>>
     {
-        public class GetAllJsaSourceTypesQureyHandler : IRequestHandler<GetAllJsaSourceTypesQurey, IEnumerable<JsaSourceType>>
+        public class GetAllSourceTypesQureyHandler : IRequestHandler<GetAllSourceTypesQurey, IEnumerable<SourceType>>
         {
             private readonly IApplicationContext _context;
-            public GetAllJsaSourceTypesQureyHandler(IApplicationContext context)
+            public GetAllSourceTypesQureyHandler(IApplicationContext context)
             {
                 _context = context;
             }
-            public async Task<IEnumerable<JsaSourceType>> Handle(GetAllJsaSourceTypesQurey request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<SourceType>> Handle(GetAllSourceTypesQurey request, CancellationToken cancellationToken)
             {
-                var jsaSourceTypeList = await _context.JsaSourceTypes.ToListAsync();
-                if (jsaSourceTypeList == null)
+                var sourceTypeList = await _context.SourceTypes.ToListAsync();
+                if (sourceTypeList == null)
                 {
                     return null;
                 }
-                return jsaSourceTypeList.AsReadOnly();
+                return sourceTypeList.AsReadOnly();
             }
         }
 
