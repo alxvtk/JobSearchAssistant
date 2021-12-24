@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace JsaCqrsApi.Domain.Models
 {
-    public partial class Url2Business
+    public partial class UrlLink2Business
     {
         public int Id { get; set; }
         public int UrlId { get; set; }

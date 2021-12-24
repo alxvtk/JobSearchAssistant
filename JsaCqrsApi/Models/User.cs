@@ -7,9 +7,9 @@ namespace JsaCqrsApi.Domain.Models
 {
     public partial class User
     {
-        public int UsrId { get; set; }
-        public int UsrPersonId { get; set; }
+        public int Id { get; set; }
+        public int PersonId { get; set; }
 
-        public virtual Person UsrPerson { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

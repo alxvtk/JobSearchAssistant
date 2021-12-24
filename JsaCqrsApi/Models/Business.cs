@@ -13,7 +13,7 @@ namespace JsaCqrsApi.Domain.Models
             Location2BusinessList = new HashSet<Location2Business>();
             Person2BusinessList = new HashSet<Person2Business>();
             Phone2BusinessList = new HashSet<Phone2Business>();
-            UrlLink2BusinessList = new HashSet<Url2Business>();
+            UrlLink2BusinessList = new HashSet<UrlLink2Business>();
         }
 
         public int Id { get; set; }
@@ -23,6 +23,6 @@ namespace JsaCqrsApi.Domain.Models
         public virtual ICollection<Location2Business> Location2BusinessList { get; set; }
         public virtual ICollection<Person2Business> Person2BusinessList { get; set; }
         public virtual ICollection<Phone2Business> Phone2BusinessList { get; set; }
-        public virtual ICollection<Url2Business> UrlLink2BusinessList { get; set; }
+        public virtual ICollection<UrlLink2Business> UrlLink2BusinessList { get; set; }
     }
 }
