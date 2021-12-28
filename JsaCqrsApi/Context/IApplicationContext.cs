@@ -6,7 +6,9 @@ namespace JsaCqrsApi.Infrastructure.Context
 {
     public interface IApplicationContext
     {
+//------------------------------------------------------------------------------------------------------------------
         DbSet<Product> Products { get; set; }
+//------------------------------------------------------------------------------------------------------------------
         DbSet<SourceType> SourceTypes { get; set; }
         DbSet<UrlLink> UrlLinks { get; set; }
         DbSet<Email> Emails { get; set; }

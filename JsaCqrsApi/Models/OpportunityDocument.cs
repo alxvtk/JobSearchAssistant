@@ -16,7 +16,7 @@ namespace JsaCqrsApi.Domain.Models
         public int? OpportunityId { get; set; }
         public int? Document { get; set; }
 
-        public virtual Opportunity OdOpportunity { get; set; }
+        public virtual Opportunity Opportunity { get; set; }
         public virtual ICollection<OpportunityAction> OpportunityActions { get; set; }
     }
 }

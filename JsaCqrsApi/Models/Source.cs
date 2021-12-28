@@ -23,7 +23,7 @@ namespace JsaCqrsApi.Domain.Models
         public virtual Email Email { get; set; }
         public virtual Person Person { get; set; }
         public virtual SourceType SourceType { get; set; }
-        public virtual UrlLink Url { get; set; }
+        public virtual UrlLink UrlLink { get; set; }
         public virtual ICollection<JobDescription> JobDescriptions { get; set; }
     }
 }
