@@ -39,6 +39,41 @@
             <param name="command"></param>
             <returns></returns>
         </member>
+        <member name="M:JsaCqrsApi.Controllers.PhoneController.Create(JsaCqrsApi.Application.Features.PhoneFeatures.Commands.CreatePhoneCommand)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.PhoneController.GetAll">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.PhoneController.GetById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.PhoneController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.PhoneController.Update(System.Int32,JsaCqrsApi.Features.PhoneFeatures.Commands.UpdatePhoneCommand)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
         <member name="M:JsaCqrsApi.Controllers.ProductController.Create(JsaCqrsApi.Application.Features.ProductFeatures.Commands.CreateProductCommand)">
             <summary>
             Creates a New Product.
