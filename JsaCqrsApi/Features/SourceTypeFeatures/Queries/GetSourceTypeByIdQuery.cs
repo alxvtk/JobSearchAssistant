@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace JsaCqrsApi.Infrastructure.Features.SourceTypeFeatures.Queries
 {
-    public class GetSourceTypeByIdQurey : IRequest<SourceType>
+    public class GetSourceTypeByIdQuery : IRequest<SourceType>
     {
         public int Id { get; set; }
-        public class GetSourceTypeByIdQueryHandler : IRequestHandler<GetSourceTypeByIdQurey, SourceType>
+        public class GetSourceTypeByIdQueryHandler : IRequestHandler<GetSourceTypeByIdQuery, SourceType>
         {
             private readonly IApplicationContext _context;
             public GetSourceTypeByIdQueryHandler(IApplicationContext context)
@@ -18,7 +18,7 @@ namespace JsaCqrsApi.Infrastructure.Features.SourceTypeFeatures.Queries
                 _context = context;
             }
 
-            public async Task<SourceType> Handle(GetSourceTypeByIdQurey query, CancellationToken cancellationToken)
+            public async Task<SourceType> Handle(GetSourceTypeByIdQuery query, CancellationToken cancellationToken)
             {
                 var sourceType = _context.SourceTypes.Where(a => a.Id == query.Id).FirstOrDefault();
                 if (sourceType == null) return null;

@@ -38,7 +38,7 @@ namespace JsaCqrsApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await Mediator.Send(new GetAllSourceTypesQurey()));
+            return Ok(await Mediator.Send(new GetAllSourceTypesQuery()));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace JsaCqrsApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await Mediator.Send(new GetSourceTypeByIdQurey { Id = id }));
+            return Ok(await Mediator.Send(new GetSourceTypeByIdQuery { Id = id }));
         }
 
         /// <summary>
