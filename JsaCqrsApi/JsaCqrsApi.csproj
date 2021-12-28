@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\UrlLinkFeatures\Commands\" />
-    <Folder Include="Features\UrlLinkFeatures\Queries\" />
+    <Folder Include="Features\EmailFeatures\Commands\" />
+    <Folder Include="Features\EmailFeatures\Queries\" />
   </ItemGroup>
 
 
