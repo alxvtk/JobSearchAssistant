@@ -25,10 +25,5 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\EmailFeatures\Commands\" />
-    <Folder Include="Features\EmailFeatures\Queries\" />
-  </ItemGroup>
-
 
 </Project>
