@@ -8,7 +8,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-//namespace JsaCqrsApi.Features.CountryFeatures.Commands
 namespace JsaCqrsApi.Application.Features.CountryFeatures.Commands
 {
     public class UpdateCountryCommand : IRequest<int>
