@@ -19,10 +19,10 @@ namespace JsaCqrsApi.Domain.Models
         }
 
         public int Id { get; set; }
-        public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string NickName { get; set; }
+        public string Title { get; set; }
         public string Position { get; set; }
         public string Comments { get; set; }
 
