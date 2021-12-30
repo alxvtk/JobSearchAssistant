@@ -26,11 +26,11 @@ namespace JsaCqrsApi.Features.SourceTypeFeatures.Commands
 
             public async Task<int> Handle(DeleteSourceTypeByIdCommand command, CancellationToken cancellationToken)
             {
-                var SourceType = _context.SourceTypes.Where(a => a.Id == command.Id).FirstOrDefault();
-                if (SourceType == null) return default;
-                _context.SourceTypes.Remove(SourceType);
+                var sourceType = _context.SourceTypes.Where(a => a.Id == command.Id).FirstOrDefault();
+                if (sourceType == null) return default;
+                _context.SourceTypes.Remove(sourceType);
                 await _context.SaveChangesAsync();
-                return SourceType.Id;
+                return sourceType.Id;
             }
         }
 
