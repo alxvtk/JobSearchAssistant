@@ -669,5 +669,40 @@
             <param name="command"></param>
             <returns></returns>
         </member>
+        <member name="M:JsaCqrsApi.Controllers.UserController.Create(JsaCqrsApi.Application.Features.UserFeatures.Commands.CreateUserCommand)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.UserController.GetAll">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JsaCqrsApi.Controllers.UserController.Update(System.Int32,JsaCqrsApi.Features.UserFeatures.Commands.UpdateUserCommand)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

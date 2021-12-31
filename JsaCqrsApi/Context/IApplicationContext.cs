@@ -8,6 +8,8 @@ namespace JsaCqrsApi.Infrastructure.Context
     {
 //------------------------------------------------------------------------------------------------------------------
         DbSet<Product> Products { get; set; }
+
+        DbSet<User> Users { get; set; }
 //------------------------------------------------------------------------------------------------------------------
         DbSet<SourceType> SourceTypes { get; set; }
         DbSet<UrlLink> UrlLinks { get; set; }
